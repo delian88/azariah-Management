@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Azariah Management Group</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              amg: {
+                blue: '#0F2C59',
+                gold: '#C69749',
+                light: '#F8F9FA',
+                dark: '#1a1a1a',
+                accent: '#E5B75A'
+              }
+            },
+            fontFamily: {
+              sans: ['Open Sans', 'sans-serif'],
+              heading: ['Montserrat', 'sans-serif'],
+            },
+            animation: {
+              'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+              'fade-in-down': 'fadeInDown 0.8s ease-out forwards',
+              'float': 'float 6s ease-in-out infinite',
+              'float-delayed': 'float 6s ease-in-out 3s infinite',
+              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'spin-slow': 'spin 12s linear infinite',
+              'text-shimmer': 'textShine 5s linear infinite',
+            },
+            keyframes: {
+              fadeInUp: {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              fadeInDown: {
+                '0%': { opacity: '0', transform: 'translateY(-20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-15px)' },
+              },
+              textShine: {
+                '0%': { backgroundPosition: '0% 50%' },
+                '100%': { backgroundPosition: '200% 50%' }
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body { 
+        font-family: 'Open Sans', sans-serif;
+        overflow-x: hidden;
+      }
+      h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; }
+      .scroll-mt-24 { scroll-margin-top: 6rem; }
+      
+      /* --- Reveal Animation System --- */
+      .reveal {
+        opacity: 0;
+        transition: all 1s cubic-bezier(0.5, 0, 0, 1);
+        will-change: transform, opacity;
+      }
+      
+      /* Initial States */
+      .from-bottom { transform: translateY(50px); }
+      .from-left { transform: translateX(-50px); }
+      .from-right { transform: translateX(50px); }
+      .from-scale { transform: scale(0.9); }
+      
+      /* Active State */
+      .reveal.active {
+        opacity: 1;
+        transform: translate(0) scale(1);
+      }
+      
+      /* Delays */
+      .delay-100 { transition-delay: 100ms; }
+      .delay-200 { transition-delay: 200ms; }
+      .delay-300 { transition-delay: 300ms; }
+      .delay-400 { transition-delay: 400ms; }
+      
+      /* Gradient Text Utility */
+      .text-gradient {
+        background: linear-gradient(to right, #C69749, #FCEda4, #C69749);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        background-size: 200% auto;
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #0F2C59; 
+        border-radius: 5px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #C69749; 
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+    <script>
+      // Enhanced Intersection Observer
+      document.addEventListener('DOMContentLoaded', () => {
+        const observerOptions = {
+          threshold: 0.15, // Trigger a bit later
+          rootMargin: "0px 0px -50px 0px"
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('active');
+              // Optional: Stop observing once revealed
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        const observeElements = () => {
+          const elements = document.querySelectorAll('.reveal');
+          elements.forEach(el => observer.observe(el));
+        };
+
+        observeElements();
+
+        // Re-observe for React dynamic updates
+        const mutationObserver = new MutationObserver(observeElements);
+        mutationObserver.observe(document.body, { childList: true, subtree: true });
+      });
+    </script>
+  </body>
+</html>
