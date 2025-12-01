@@ -166,7 +166,7 @@ const ChatWidget: React.FC = () => {
               <button 
                 onClick={handleSendMessage}
                 disabled={isLoading}
-                className="bg-amg-gold text-amg-blue p-2 rounded-md hover:bg-yellow-500 disabled:opacity-50 transition-colors"
+                className="bg-amg-green text-white p-2 rounded-md hover:bg-green-600 disabled:opacity-50 transition-colors"
               >
                 <Icons.Send />
               </button>

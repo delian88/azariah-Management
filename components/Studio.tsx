@@ -5,13 +5,13 @@ const Studio: React.FC = () => {
   return (
     <section id="studio" className="py-24 pt-32 bg-amg-blue text-white relative overflow-hidden min-h-screen flex items-center">
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#C69749 1px, transparent 1px)', backgroundSize: '30px 30px' }}></div>
-      <div className="absolute -top-1/2 -right-1/2 w-[100%] h-[100%] bg-gradient-to-b from-amg-gold/10 to-transparent rounded-full blur-3xl animate-pulse-slow"></div>
+      <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#16a34a 1px, transparent 1px)', backgroundSize: '30px 30px' }}></div>
+      <div className="absolute -top-1/2 -right-1/2 w-[100%] h-[100%] bg-gradient-to-b from-amg-green/10 to-transparent rounded-full blur-3xl animate-pulse-slow"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="lg:grid lg:grid-cols-2 gap-16 items-center">
           <div className="reveal from-left order-2 lg:order-1">
-            <div className="inline-flex items-center space-x-2 mb-6 text-amg-gold animate-bounce" style={{ animationDuration: '3s' }}>
+            <div className="inline-flex items-center space-x-2 mb-6 text-amg-green animate-bounce" style={{ animationDuration: '3s' }}>
               <Icons.Video />
               <span className="font-bold tracking-wider uppercase">AMG Creative</span>
             </div>
@@ -19,27 +19,27 @@ const Studio: React.FC = () => {
               {STUDIO_INFO.title}
             </h2>
             <h3 className="text-2xl text-gray-300 mb-6 font-light">{STUDIO_INFO.subtitle}</h3>
-            <p className="text-lg text-gray-300 leading-relaxed mb-8 border-l-4 border-amg-gold pl-6">
+            <p className="text-lg text-gray-300 leading-relaxed mb-8 border-l-4 border-amg-green pl-6">
               {STUDIO_INFO.description}
             </p>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
               {['Professional Lighting', '4K Video Production', 'Sound Engineering', 'Live Streaming'].map((item, i) => (
                 <div key={item} className="flex items-center space-x-2 reveal from-bottom" style={{ transitionDelay: `${i * 100}ms` }}>
-                  <div className="w-2 h-2 bg-amg-gold rounded-full shadow-[0_0_10px_#C69749]"></div>
+                  <div className="w-2 h-2 bg-amg-green rounded-full shadow-[0_0_10px_#16a34a]"></div>
                   <span className="text-gray-200">{item}</span>
                 </div>
               ))}
             </div>
 
-            <a href="#contact" className="group inline-block bg-transparent border-2 border-amg-gold text-amg-gold font-bold px-8 py-3 rounded-full hover:bg-amg-gold hover:text-amg-blue transition-all duration-300 relative overflow-hidden">
+            <a href="#contact" className="group inline-block bg-transparent border-2 border-amg-green text-amg-green font-bold px-8 py-3 rounded-full hover:bg-amg-green hover:text-white transition-all duration-300 relative overflow-hidden">
               <span className="relative z-10">Book Studio Time</span>
-              <div className="absolute inset-0 bg-amg-gold transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out z-0"></div>
+              <div className="absolute inset-0 bg-amg-green transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out z-0"></div>
             </a>
           </div>
 
           <div className="reveal from-right order-1 lg:order-2 mb-12 lg:mb-0 relative group">
-            <div className="absolute -inset-4 bg-gradient-to-tr from-amg-gold/30 to-blue-500/30 rounded-2xl blur-lg group-hover:blur-2xl transition-all duration-500 animate-pulse-slow"></div>
+            <div className="absolute -inset-4 bg-gradient-to-tr from-amg-green/30 to-blue-500/30 rounded-2xl blur-lg group-hover:blur-2xl transition-all duration-500 animate-pulse-slow"></div>
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10">
               <img 
                 src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 

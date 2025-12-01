@@ -16,14 +16,14 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Decorative Floating Elements */}
-      <div className="absolute top-20 left-10 w-24 h-24 bg-amg-gold/20 rounded-full blur-2xl animate-float z-10"></div>
+      <div className="absolute top-20 left-10 w-24 h-24 bg-amg-green/20 rounded-full blur-2xl animate-float z-10"></div>
       <div className="absolute bottom-20 right-10 w-32 h-32 bg-white/10 rounded-full blur-3xl animate-float-delayed z-10"></div>
 
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="max-w-4xl">
-          <div className="inline-block px-5 py-2 mb-6 border border-amg-gold/50 rounded-full bg-amg-blue/40 backdrop-blur-md animate-fade-in-down shadow-lg shadow-amg-gold/10">
-            <span className="text-amg-gold font-bold text-sm uppercase tracking-widest flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-amg-gold animate-pulse"></span>
+          <div className="inline-block px-5 py-2 mb-6 border border-amg-green/50 rounded-full bg-amg-blue/40 backdrop-blur-md animate-fade-in-down shadow-lg shadow-amg-green/10">
+            <span className="text-amg-green font-bold text-sm uppercase tracking-widest flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-amg-green animate-pulse"></span>
               Premier Management Consulting
             </span>
           </div>
@@ -42,7 +42,7 @@ const Hero: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-5 animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
             <a
               href="#services"
-              className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold rounded-full text-amg-blue bg-amg-gold overflow-hidden transition-all shadow-[0_0_20px_rgba(198,151,73,0.3)] hover:shadow-[0_0_30px_rgba(198,151,73,0.6)] hover:-translate-y-1"
+              className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold rounded-full text-white bg-amg-green overflow-hidden transition-all shadow-[0_0_20px_rgba(22,163,74,0.3)] hover:shadow-[0_0_30px_rgba(22,163,74,0.6)] hover:-translate-y-1"
             >
               <span className="relative z-10 group-hover:text-white transition-colors duration-300">Explore Services</span>
               <div className="absolute inset-0 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 ease-out z-0 opacity-10"></div>

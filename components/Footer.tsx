@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div className="col-span-1 md:col-span-2">
             <span className="text-2xl font-bold font-heading tracking-tight text-white mb-4 block">
-                AZARIAH <span className="text-amg-gold">MG</span>
+                AZARIAH <span className="text-amg-green">MG</span>
             </span>
             <p className="text-gray-300 mb-4 max-w-sm">
               {COMPANY_INFO.tagline} We are dedicated to providing superior management and consulting services that drive success.
@@ -16,7 +16,7 @@ const Footer: React.FC = () => {
           </div>
           
           <div>
-            <h4 className="text-lg font-bold mb-4 text-amg-gold">Quick Links</h4>
+            <h4 className="text-lg font-bold mb-4 text-amg-green">Quick Links</h4>
             <ul className="space-y-2">
               {NAV_ITEMS.map((item) => (
                 <li key={item.label}>
@@ -29,7 +29,7 @@ const Footer: React.FC = () => {
           </div>
 
           <div>
-            <h4 className="text-lg font-bold mb-4 text-amg-gold">Contact</h4>
+            <h4 className="text-lg font-bold mb-4 text-amg-green">Contact</h4>
             <address className="not-italic text-gray-300 space-y-2">
               <p>{COMPANY_INFO.address}</p>
               <p>Email: <a href={`mailto:${COMPANY_INFO.email}`} className="hover:text-white">{COMPANY_INFO.email}</a></p>

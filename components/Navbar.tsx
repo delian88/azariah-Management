@@ -40,8 +40,8 @@ const Navbar: React.FC = () => {
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0 flex items-center group cursor-pointer">
             <a href="#home" className="flex items-center space-x-2">
-              <span className="text-3xl font-extrabold font-heading tracking-tight text-white group-hover:text-amg-gold transition-colors">
-                AZARIAH <span className="text-amg-gold group-hover:text-white transition-colors">MG</span>
+              <span className="text-3xl font-extrabold font-heading tracking-tight text-white group-hover:text-amg-green transition-colors">
+                AZARIAH <span className="text-amg-green group-hover:text-white transition-colors">MG</span>
               </span>
             </a>
           </div>
@@ -61,13 +61,13 @@ const Navbar: React.FC = () => {
                     }`}
                   >
                     {item.label}
-                    <span className={`absolute bottom-0 left-0 h-0.5 bg-amg-gold transition-all duration-300 ${
+                    <span className={`absolute bottom-0 left-0 h-0.5 bg-amg-green transition-all duration-300 ${
                       isActive ? 'w-full' : 'w-0 group-hover:w-full'
                     }`}></span>
                   </a>
                 );
               })}
-              <a href="#contact" className="ml-4 bg-amg-gold text-amg-blue font-bold px-6 py-2.5 rounded-full hover:bg-white hover:text-amg-blue transition-all shadow-lg transform hover:-translate-y-0.5">
+              <a href="#contact" className="ml-4 bg-amg-green text-white font-bold px-6 py-2.5 rounded-full hover:bg-white hover:text-amg-green transition-all shadow-lg transform hover:-translate-y-0.5">
                 Get a Quote
               </a>
             </div>
@@ -77,7 +77,7 @@ const Navbar: React.FC = () => {
           <div className="-mr-2 flex lg:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-amg-gold focus:outline-none transition-colors"
+              className="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-amg-green focus:outline-none transition-colors"
             >
               <span className="sr-only">Open main menu</span>
               {isOpen ? <Icons.X /> : <Icons.Menu />}
@@ -101,8 +101,8 @@ const Navbar: React.FC = () => {
               onClick={() => setIsOpen(false)}
               className={`block px-3 py-4 rounded-md text-lg font-medium border-b border-white/10 ${
                 activeSection === item.href.substring(1)
-                  ? 'text-amg-gold bg-white/10' 
-                  : 'text-gray-200 hover:text-amg-gold hover:bg-white/5'
+                  ? 'text-amg-green bg-white/10' 
+                  : 'text-gray-200 hover:text-amg-green hover:bg-white/5'
               }`}
             >
               {item.label}
@@ -111,7 +111,7 @@ const Navbar: React.FC = () => {
           <a 
             href="#contact"
             onClick={() => setIsOpen(false)}
-            className="block w-full text-center mt-8 bg-amg-gold text-amg-blue font-bold px-4 py-3 rounded-md hover:bg-white transition-colors"
+            className="block w-full text-center mt-8 bg-amg-green text-white font-bold px-4 py-3 rounded-md hover:bg-white hover:text-amg-green transition-colors"
           >
             Get a Quote
           </a>
