@@ -7,6 +7,7 @@ import Services from './components/Services';
 import Studio from './components/Studio';
 import Podcast from './components/Podcast';
 import BookingSession from './components/BookingSession';
+import AiForceCommunity from './components/AiForceCommunity';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ChatWidget from './components/ChatWidget';
@@ -21,6 +22,7 @@ const App: React.FC = () => {
       <Services />
       <Studio />
       <Podcast />
+      <AiForceCommunity />
       <BookingSession />
       <Contact />
       <Footer />
