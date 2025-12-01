@@ -97,6 +97,7 @@ export const NAV_ITEMS: NavItem[] = [
   { label: 'Services', href: '#services' },
   { label: 'Studio', href: '#studio' },
   { label: 'Podcast', href: '#podcast' },
+  { label: 'Booking', href: '#booking' },
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -157,12 +158,22 @@ export const SERVICES: ServiceItem[] = [
   },
 ];
 
+export const PARTNERS = [
+  { id: 1, name: 'Partner 1', logo: 'https://placehold.co/200x80/white/0F2C59?text=Partner+1&font=montserrat' },
+  { id: 2, name: 'Partner 2', logo: 'https://placehold.co/200x80/white/0F2C59?text=Partner+2&font=montserrat' },
+  { id: 3, name: 'Partner 3', logo: 'https://placehold.co/200x80/white/0F2C59?text=Partner+3&font=montserrat' },
+  { id: 4, name: 'Partner 4', logo: 'https://placehold.co/200x80/white/0F2C59?text=Partner+4&font=montserrat' },
+  { id: 5, name: 'Partner 5', logo: 'https://placehold.co/200x80/white/0F2C59?text=Partner+5&font=montserrat' },
+  { id: 6, name: 'Partner 6', logo: 'https://placehold.co/200x80/white/0F2C59?text=Partner+6&font=montserrat' },
+];
+
 export const COMPANY_INFO = {
   name: "Azariah Management Group",
   tagline: "Empowering Growth. Delivering Excellence.",
   address: "Upper Marlboro, MD 20772, USA",
   email: "info@azariahmg.com",
   phone: "+1 (240) 813-0308",
+  logoUrl: "https://placehold.co/300x80/0F2C59/white?text=AZARIAH+MG&font=montserrat", // Placeholder logo
   aboutText: `Azariah Management Group (AMG) is a premier management consulting firm dedicated to providing exceptional support services to federal and commercial clients. With a commitment to integrity, innovation, and excellence, we partner with organizations to optimize performance and achieve sustainable growth.
 
   Founded on the principles of service and leadership, AMG brings together a team of seasoned professionals with deep expertise in program management, human capital, and administrative support. We understand the unique challenges our clients face and deliver tailored solutions that drive measurable results.`,

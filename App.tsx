@@ -2,9 +2,11 @@ import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
+import Partners from './components/Partners';
 import Services from './components/Services';
 import Studio from './components/Studio';
 import Podcast from './components/Podcast';
+import BookingSession from './components/BookingSession';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ChatWidget from './components/ChatWidget';
@@ -14,10 +16,12 @@ const App: React.FC = () => {
     <div className="min-h-screen bg-white flex flex-col font-sans text-gray-900">
       <Navbar />
       <Hero />
+      <Partners />
       <About />
       <Services />
       <Studio />
       <Podcast />
+      <BookingSession />
       <Contact />
       <Footer />
       {/* AI Chatbot for customer assistance */}

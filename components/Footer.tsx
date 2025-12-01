@@ -7,9 +7,11 @@ const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div className="col-span-1 md:col-span-2">
-            <span className="text-2xl font-bold font-heading tracking-tight text-white mb-4 block">
-                AZARIAH <span className="text-amg-green">MG</span>
-            </span>
+             <img 
+                src={COMPANY_INFO.logoUrl} 
+                alt={COMPANY_INFO.name} 
+                className="h-12 w-auto mb-6 brightness-0 invert opacity-90"
+              />
             <p className="text-gray-300 mb-4 max-w-sm">
               {COMPANY_INFO.tagline} We are dedicated to providing superior management and consulting services that drive success.
             </p>

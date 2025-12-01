@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { NAV_ITEMS, Icons } from '../constants';
+import { NAV_ITEMS, Icons, COMPANY_INFO } from '../constants';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -40,9 +40,11 @@ const Navbar: React.FC = () => {
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0 flex items-center group cursor-pointer">
             <a href="#home" className="flex items-center space-x-2">
-              <span className="text-3xl font-extrabold font-heading tracking-tight text-white group-hover:text-amg-green transition-colors">
-                AZARIAH <span className="text-amg-green group-hover:text-white transition-colors">MG</span>
-              </span>
+              <img 
+                src={COMPANY_INFO.logoUrl} 
+                alt={COMPANY_INFO.name} 
+                className={`h-10 w-auto transition-all duration-300 ${scrolled ? 'brightness-100' : 'brightness-0 invert'}`}
+              />
             </a>
           </div>
           
