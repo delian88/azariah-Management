@@ -173,7 +173,7 @@ export const COMPANY_INFO = {
   address: "Upper Marlboro, MD 20772, USA",
   email: "info@azariahmg.com",
   phone: "+1 (240) 813-0308",
-  logoUrl: "https://placehold.co/300x80/0F2C59/white?text=AZARIAH+MG&font=montserrat", // Placeholder logo
+  logoUrl: "https://static.wixstatic.com/media/a3c155_2b724620025141e0892095906201657c~mv2.png",
   aboutText: `Azariah Management Group (AMG) is a premier management consulting firm dedicated to providing exceptional support services to federal and commercial clients. With a commitment to integrity, innovation, and excellence, we partner with organizations to optimize performance and achieve sustainable growth.
 
   Founded on the principles of service and leadership, AMG brings together a team of seasoned professionals with deep expertise in program management, human capital, and administrative support. We understand the unique challenges our clients face and deliver tailored solutions that drive measurable results.`,

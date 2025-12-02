@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
              <img 
                 src={COMPANY_INFO.logoUrl} 
                 alt={COMPANY_INFO.name} 
-                className="h-12 w-auto mb-6 brightness-0 invert opacity-90"
+                className="h-16 w-auto mb-6 brightness-0 invert opacity-90"
               />
             <p className="text-gray-300 mb-4 max-w-sm">
               {COMPANY_INFO.tagline} We are dedicated to providing superior management and consulting services that drive success.

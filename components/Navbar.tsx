@@ -43,7 +43,7 @@ const Navbar: React.FC = () => {
               <img 
                 src={COMPANY_INFO.logoUrl} 
                 alt={COMPANY_INFO.name} 
-                className={`h-10 w-auto transition-all duration-300 ${scrolled ? 'brightness-100' : 'brightness-0 invert'}`}
+                className={`h-14 w-auto transition-all duration-300 ${scrolled ? 'brightness-100' : 'brightness-0 invert'}`}
               />
             </a>
           </div>
