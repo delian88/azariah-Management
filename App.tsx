@@ -20,6 +20,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ChatWidget from './components/ChatWidget';
 import LoadingScreen from './components/LoadingScreen';
+import LeadMagnet from './components/LeadMagnet';
 import { NavigationProvider, useNavigation } from './NavigationContext';
 
 const AppContent: React.FC = () => {
@@ -36,6 +37,9 @@ const AppContent: React.FC = () => {
           <>
             <Hero />
             <Partners />
+            <div id="blueprint">
+               <LeadMagnet />
+            </div>
             <About />
             <Services />
             <FinalCTA />
@@ -62,6 +66,8 @@ const AppContent: React.FC = () => {
         return <div className="pt-20"><BookingSession /></div>;
       case '/contact':
         return <div className="pt-20"><Contact /></div>;
+      case '/blueprint':
+        return <div className="pt-20"><LeadMagnet /></div>;
       default:
         return (
           <div className="py-40 text-center">

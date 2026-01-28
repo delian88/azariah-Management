@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { COMPANY_INFO } from '../constants';
+import { COMPANY_INFO, LEAD_MAGNET } from '../constants';
 import Link from './Link';
 
 const Hero: React.FC = () => {
@@ -11,7 +11,7 @@ const Hero: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-amg-blue/95 via-amg-blue/80 to-transparent z-10"></div>
         <img
           src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=90" 
-          alt="Modern Architecture"
+          alt="Strategic Impact Architecture"
           className="w-full h-full object-cover transform scale-105"
         />
       </div>
@@ -28,23 +28,20 @@ const Hero: React.FC = () => {
             </span>
           </div>
           
-          <h1 className="text-4xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-white font-heading tracking-tighter mb-6 sm:mb-8 leading-[1.1] sm:leading-[0.85] animate-fade-in-up">
-            {COMPANY_INFO.shortName} <br/>
-            <span className="text-gradient brightness-125">
-              Strategic Force
-            </span>
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white font-heading tracking-tighter mb-6 sm:mb-8 leading-[1.1] animate-fade-in-up">
+            {LEAD_MAGNET.heroH1}
           </h1>
           
-          <p className="mt-4 text-lg sm:text-xl md:text-2xl text-gray-200 mb-8 sm:mb-12 leading-relaxed font-light max-w-2xl animate-fade-in-up">
-            Empowering <strong>Global Leaders</strong> through Integrated Strategic Consulting, AI Innovation, and Professional Media Storytelling.
+          <p className="mt-4 text-lg sm:text-xl md:text-2xl text-gray-200 mb-8 sm:mb-12 leading-relaxed font-light max-w-3xl animate-fade-in-up">
+            {LEAD_MAGNET.subtitle} — Your Guide to Building Programs That Deliver Real Results. {LEAD_MAGNET.description}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 animate-fade-in-up">
             <Link
-              href="/services"
-              className="group relative inline-flex items-center justify-center px-8 sm:px-12 py-4 sm:py-5 text-base sm:text-lg font-black rounded-full text-white bg-amg-green overflow-hidden transition-all shadow-2xl"
+              href="#blueprint"
+              className="group relative inline-flex items-center justify-center px-8 sm:px-12 py-4 sm:py-5 text-base sm:text-lg font-black rounded-full text-white bg-amg-green overflow-hidden transition-all shadow-2xl hover:bg-white hover:text-amg-blue"
             >
-              <span className="relative z-10 uppercase tracking-widest text-[10px] sm:text-xs">Explore Services</span>
+              <span className="relative z-10 uppercase tracking-widest text-[10px] sm:text-xs">Download Blueprint</span>
             </Link>
             <Link
               href="/booking"

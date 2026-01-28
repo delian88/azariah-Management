@@ -70,14 +70,14 @@ const Navbar: React.FC = () => {
                 );
               })}
               <Link 
-                href="/contact" 
+                href="/blueprint" 
                 className={`ml-4 font-black px-7 py-3 rounded-full transition-all shadow-lg transform hover:-translate-y-1 active:scale-95 ${
                   (scrolled || currentPath !== '/')
-                    ? 'bg-amg-blue text-white hover:bg-amg-green shadow-amg-blue/20' 
+                    ? 'bg-amg-green text-white hover:bg-amg-blue shadow-amg-green/20' 
                     : 'bg-amg-green text-white hover:bg-white hover:text-amg-blue shadow-amg-green/30'
                 }`}
               >
-                Get a Quote
+                Blueprint
               </Link>
             </div>
           </div>
@@ -118,11 +118,11 @@ const Navbar: React.FC = () => {
             </Link>
           ))}
           <Link 
-            href="/contact"
+            href="/blueprint"
             onClick={() => setIsOpen(false)}
             className="block w-full text-center mt-10 bg-amg-blue text-white font-bold px-4 py-5 rounded-xl shadow-xl shadow-amg-blue/20"
           >
-            Get a Quote
+            Download Blueprint
           </Link>
         </div>
       </div>
