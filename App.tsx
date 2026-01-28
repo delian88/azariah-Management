@@ -1,5 +1,5 @@
 
-import React, { useMemo } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -19,11 +19,12 @@ import AiForceCommunity from './components/AiForceCommunity';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ChatWidget from './components/ChatWidget';
-import LeadMagnet from './components/LeadMagnet';
+import LoadingScreen from './components/LoadingScreen';
 import { NavigationProvider, useNavigation } from './NavigationContext';
 
 const AppContent: React.FC = () => {
   const { currentPath } = useNavigation();
+  const [isAppVisible, setIsAppVisible] = useState(false);
 
   const renderedContent = useMemo(() => {
     // Return to the top on page change
@@ -61,8 +62,6 @@ const AppContent: React.FC = () => {
         return <div className="pt-20"><BookingSession /></div>;
       case '/contact':
         return <div className="pt-20"><Contact /></div>;
-      case '/blueprint':
-        return <div className="pt-20"><LeadMagnet /></div>;
       default:
         return (
           <div className="py-40 text-center">
@@ -74,7 +73,9 @@ const AppContent: React.FC = () => {
   }, [currentPath]);
 
   return (
-    <div className="min-h-screen bg-white flex flex-col font-sans text-gray-900">
+    <div className={`min-h-screen bg-white flex flex-col font-sans text-gray-900 transition-opacity duration-1000 ${isAppVisible ? 'opacity-100' : 'opacity-0'}`}>
+      {!isAppVisible && <LoadingScreen onEnter={() => setIsAppVisible(true)} />}
+      
       <Navbar />
       <main className="flex-grow">
         {renderedContent}
