@@ -1,3 +1,4 @@
+
 import React, { useState, useRef, useEffect } from 'react';
 import { GoogleGenAI } from "@google/genai";
 import { Icons, COMPANY_INFO, SERVICES } from '../constants';
@@ -9,7 +10,7 @@ const ChatWidget: React.FC = () => {
     {
       id: 'welcome',
       role: 'model',
-      text: `Hello! I'm the ${COMPANY_INFO.name} AI Assistant. How can I help you today?`,
+      text: `Welcome to Azariah Management Group. I am your Strategic Assistant. How may I assist you with our consulting or studio services today?`,
       timestamp: new Date()
     }
   ]);
@@ -42,40 +43,37 @@ const ChatWidget: React.FC = () => {
     setIsLoading(true);
 
     try {
-      // Initialize Gemini
-      // NOTE: process.env.API_KEY is assumed to be available
-      const apiKey = process.env.API_KEY || ''; 
+      // Fix: Follow guidelines for initializing GoogleGenAI with process.env.API_KEY
+      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
       
-      if (!apiKey) {
-          throw new Error("API Key not found");
-      }
-
-      const ai = new GoogleGenAI({ apiKey });
-      
-      // Construct system context with company info
       const serviceDescriptions = SERVICES.map(s => `- ${s.title}: ${s.description}`).join('\n');
       const systemInstruction = `
-        You are a helpful, professional AI assistant for ${COMPANY_INFO.name}.
+        You are a highly professional, senior executive assistant for ${COMPANY_INFO.name} (AMG).
+        
+        Brand Identity: ${COMPANY_INFO.heroHeadline}.
+        Tone: Corporate, Professional, Authoritative, yet Helpful and Approachable.
         
         Company Context:
         ${COMPANY_INFO.aboutText}
         
-        Services Offered:
+        Our Core Pillars & Services:
         ${serviceDescriptions}
         
-        Contact Info:
-        Address: ${COMPANY_INFO.address}
+        Contact Details:
+        Office: ${COMPANY_INFO.address}
         Email: ${COMPANY_INFO.email}
         Phone: ${COMPANY_INFO.phone}
         
-        Tone: Professional, Corporate, Helpful, Concise.
-        Goal: Answer visitor questions about the company's services, location, and expertise.
-        If you don't know an answer, kindly suggest they contact the company directly via the form or phone.
+        Guidelines:
+        1. Be concise and provide value-driven responses.
+        2. If a user asks about booking, direct them to the "Booking" section or mention our Maryland studio.
+        3. For complex inquiries, recommend an initial consultation.
+        4. Refer to the user as a partner or leader.
       `;
 
       const response = await ai.models.generateContent({
-        model: 'gemini-2.5-flash',
-        contents: input, // In a real app, maintain history context here
+        model: 'gemini-3-flash-preview',
+        contents: input,
         config: {
           systemInstruction: systemInstruction,
         }
@@ -84,18 +82,18 @@ const ChatWidget: React.FC = () => {
       const modelMessage: ChatMessage = {
         id: (Date.now() + 1).toString(),
         role: 'model',
-        text: response.text || "I apologize, I couldn't generate a response at this time. Please try again or contact us directly.",
+        text: response.text || "I apologize, but I'm unable to provide a response right now. Please reach out via our contact form.",
         timestamp: new Date()
       };
 
       setMessages(prev => [...prev, modelMessage]);
 
     } catch (error) {
-      console.error("Gemini API Error:", error);
+      console.error("AMG Intel Error:", error);
       const errorMessage: ChatMessage = {
         id: (Date.now() + 1).toString(),
         role: 'model',
-        text: "I'm currently experiencing technical difficulties. Please contact our office directly at " + COMPANY_INFO.phone,
+        text: "I am experiencing a momentary connection lapse. Please contact our headquarters directly at " + COMPANY_INFO.phone,
         timestamp: new Date()
       };
       setMessages(prev => [...prev, errorMessage]);
@@ -109,29 +107,40 @@ const ChatWidget: React.FC = () => {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+    <div className="fixed bottom-6 right-6 z-[60] flex flex-col items-end">
       {/* Chat Window */}
       {isOpen && (
-        <div className="bg-white rounded-lg shadow-2xl w-80 sm:w-96 mb-4 overflow-hidden border border-gray-200 flex flex-col animate-fade-in-up" style={{ height: '500px' }}>
+        <div className="bg-white rounded-2xl shadow-2xl w-[90vw] sm:w-[400px] mb-4 overflow-hidden border border-gray-100 flex flex-col animate-fade-in-up origin-bottom-right">
           {/* Header */}
-          <div className="bg-amg-blue p-4 flex justify-between items-center text-white">
-            <div className="flex items-center space-x-2">
-              <Icons.Sparkles />
-              <span className="font-semibold">AMG Smart Assistant</span>
+          <div className="bg-amg-blue p-5 flex justify-between items-center text-white">
+            <div className="flex items-center space-x-3">
+              <div className="p-2 bg-amg-green rounded-lg">
+                <Icons.Sparkles />
+              </div>
+              <div>
+                <span className="font-bold block text-sm">AMG Strategic Intel</span>
+                <span className="text-[10px] text-amg-green flex items-center">
+                  <span className="w-1.5 h-1.5 bg-amg-green rounded-full mr-1 animate-pulse"></span>
+                  Active Now
+                </span>
+              </div>
             </div>
-            <button onClick={() => setIsOpen(false)} className="hover:text-gray-200">
+            <button 
+              onClick={() => setIsOpen(false)} 
+              className="p-1 hover:bg-white/10 rounded-full transition-colors"
+            >
               <Icons.X />
             </button>
           </div>
           
           {/* Messages Area */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50">
+          <div className="flex-1 overflow-y-auto p-5 space-y-4 bg-[#F9FAFB] min-h-[350px] max-h-[450px]">
             {messages.map((msg) => (
               <div key={msg.id} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                <div className={`max-w-[80%] p-3 rounded-lg text-sm ${
+                <div className={`max-w-[85%] p-4 rounded-2xl text-sm leading-relaxed ${
                   msg.role === 'user' 
-                    ? 'bg-amg-blue text-white rounded-br-none' 
-                    : 'bg-white text-gray-800 border border-gray-200 shadow-sm rounded-bl-none'
+                    ? 'bg-amg-blue text-white rounded-tr-none shadow-md' 
+                    : 'bg-white text-gray-700 border border-gray-200 rounded-tl-none shadow-sm'
                 }`}>
                   {msg.text}
                 </div>
@@ -139,11 +148,11 @@ const ChatWidget: React.FC = () => {
             ))}
             {isLoading && (
               <div className="flex justify-start">
-                 <div className="bg-white p-3 rounded-lg border border-gray-200 shadow-sm">
-                    <div className="flex space-x-1">
-                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
-                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce delay-100"></div>
-                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce delay-200"></div>
+                 <div className="bg-white p-4 rounded-2xl border border-gray-200 shadow-sm rounded-tl-none">
+                    <div className="flex space-x-1.5">
+                      <div className="w-2 h-2 bg-amg-green rounded-full animate-bounce"></div>
+                      <div className="w-2 h-2 bg-amg-green rounded-full animate-bounce delay-100"></div>
+                      <div className="w-2 h-2 bg-amg-green rounded-full animate-bounce delay-200"></div>
                     </div>
                  </div>
               </div>
@@ -152,21 +161,21 @@ const ChatWidget: React.FC = () => {
           </div>
 
           {/* Input Area */}
-          <div className="p-4 bg-white border-t border-gray-200">
-            <div className="flex space-x-2">
+          <div className="p-4 bg-white border-t border-gray-100">
+            <div className="relative flex items-center">
               <input
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyPress}
-                placeholder="Ask about our services..."
-                className="flex-1 border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amg-blue"
+                placeholder="Ask about our strategy services..."
+                className="w-full border-none bg-gray-50 rounded-xl pl-4 pr-12 py-3 text-sm focus:ring-2 focus:ring-amg-green/50 outline-none transition-all text-gray-800"
                 disabled={isLoading}
               />
               <button 
                 onClick={handleSendMessage}
-                disabled={isLoading}
-                className="bg-amg-green text-white p-2 rounded-md hover:bg-green-600 disabled:opacity-50 transition-colors"
+                disabled={isLoading || !input.trim()}
+                className="absolute right-2 text-amg-blue p-2 rounded-lg hover:text-amg-green disabled:opacity-30 transition-all transform hover:scale-110"
               >
                 <Icons.Send />
               </button>
@@ -178,9 +187,14 @@ const ChatWidget: React.FC = () => {
       {/* Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="bg-amg-blue text-white p-4 rounded-full shadow-lg hover:bg-blue-800 transition-all transform hover:scale-110 flex items-center justify-center"
+        className="bg-amg-blue text-white w-16 h-16 rounded-full shadow-2xl hover:bg-amg-green transition-all transform hover:scale-110 flex items-center justify-center border-4 border-white group"
       >
-        {isOpen ? <Icons.X /> : <Icons.Message />}
+        {isOpen ? <Icons.X /> : (
+          <div className="relative">
+            <Icons.Message />
+            <span className="absolute -top-1 -right-1 w-3 h-3 bg-amg-green border-2 border-white rounded-full"></span>
+          </div>
+        )}
       </button>
     </div>
   );
