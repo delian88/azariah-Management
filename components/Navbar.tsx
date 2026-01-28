@@ -18,23 +18,31 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Sync scroll lock when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  }, [isOpen]);
+
   return (
     <nav 
       className={`fixed w-full z-50 transition-all duration-500
       ${(scrolled || currentPath !== '/')
-        ? 'bg-white shadow-2xl py-2 border-b border-gray-100' 
-        : 'bg-transparent py-6 border-transparent'}`}
+        ? 'bg-white shadow-2xl py-2 sm:py-3 border-b border-gray-100' 
+        : 'bg-transparent py-4 sm:py-6 border-transparent'}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-14 sm:h-16">
           <div className="flex-shrink-0 flex items-center group cursor-pointer">
             <Link href="/" className="flex items-center">
-              {/* Logo display handling: Ensure it is always visible even with its white background */}
-              <div className={`p-1.5 rounded-lg transition-all duration-300 overflow-hidden ${(!scrolled && currentPath === '/') ? 'bg-white/95 shadow-xl scale-110' : 'bg-transparent'}`}>
+              <div className={`p-1 sm:p-1.5 rounded-lg transition-all duration-300 overflow-hidden ${(!scrolled && currentPath === '/') ? 'bg-white shadow-xl scale-105 sm:scale-110' : 'bg-transparent'}`}>
                 <img 
                   src={COMPANY_INFO.logoUrl} 
                   alt={COMPANY_INFO.name} 
-                  className="h-10 sm:h-12 w-auto transition-all duration-300 transform group-hover:scale-105"
+                  className="h-8 sm:h-12 w-auto transition-all duration-300 transform group-hover:scale-105"
                   style={{ objectFit: 'contain' }}
                   onError={(e) => {
                     (e.target as HTMLImageElement).src = 'https://placehold.co/400x200/00548B/ffffff?text=AMG+GROUP';
@@ -96,18 +104,18 @@ const Navbar: React.FC = () => {
 
       {/* Mobile Menu */}
       <div 
-        className={`lg:hidden fixed inset-0 z-40 bg-white transform transition-transform duration-500 ease-in-out ${
+        className={`lg:hidden fixed inset-0 z-40 bg-white transform transition-transform duration-500 ease-in-out h-screen ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
-        style={{ top: '64px' }}
+        style={{ top: scrolled || currentPath !== '/' ? '60px' : '72px' }}
       >
-        <div className="px-6 pt-12 pb-6 space-y-4">
+        <div className="px-6 pt-10 pb-20 space-y-2 max-h-[calc(100vh-80px)] overflow-y-auto">
           {NAV_ITEMS.map((item) => (
             <Link
               key={item.label}
               href={item.href}
               onClick={() => setIsOpen(false)}
-              className={`block px-4 py-5 rounded-2xl text-xl font-bold border-b border-gray-50 transition-all ${
+              className={`block px-4 py-4 rounded-xl text-lg font-bold border-b border-gray-50 transition-all ${
                 currentPath === item.href
                   ? 'text-amg-blue bg-amg-blue/5' 
                   : 'text-amg-grey hover:text-amg-blue hover:bg-gray-50'
@@ -119,10 +127,18 @@ const Navbar: React.FC = () => {
           <Link 
             href="/contact"
             onClick={() => setIsOpen(false)}
-            className="block w-full text-center mt-12 bg-amg-blue text-white font-bold px-4 py-5 rounded-2xl shadow-xl shadow-amg-blue/20 hover:bg-amg-green transition-colors"
+            className="block w-full text-center mt-10 bg-amg-blue text-white font-bold px-4 py-5 rounded-xl shadow-xl shadow-amg-blue/20 hover:bg-amg-green transition-colors"
           >
             Get a Quote
           </Link>
+          
+          <div className="pt-12 text-center">
+            <p className="text-gray-400 text-xs font-bold uppercase tracking-widest mb-4">Connect With Us</p>
+            <div className="flex justify-center space-x-4">
+              <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-amg-blue"><Icons.Globe /></div>
+              <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-amg-blue"><Icons.Users /></div>
+            </div>
+          </div>
         </div>
       </div>
     </nav>
