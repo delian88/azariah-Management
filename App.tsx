@@ -1,9 +1,11 @@
+
 import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Partners from './components/Partners';
 import Services from './components/Services';
+import CSRHighlight from './components/CSRHighlight';
 import Studio from './components/Studio';
 import Podcast from './components/Podcast';
 import BookingSession from './components/BookingSession';
@@ -19,6 +21,7 @@ const App: React.FC = () => {
       <Hero />
       <Partners />
       <About />
+      <CSRHighlight />
       <Services />
       <Studio />
       <Podcast />
