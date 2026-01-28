@@ -121,8 +121,8 @@ export const SERVICES: ServiceItem[] = [
   },
   {
     id: 's5',
-    title: 'Global Community Development',
-    description: 'Fostering local and international growth through strategic community engagement and equitable economic development models.',
+    title: 'Community Impact & Development',
+    description: 'Designing and implementing initiatives that strengthen communities, improve quality of life, and create measurable, long-term social transformation.',
     icon: <Icons.Globe />,
   },
   {

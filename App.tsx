@@ -6,6 +6,11 @@ import About from './components/About';
 import Partners from './components/Partners';
 import Services from './components/Services';
 import CSRHighlight from './components/CSRHighlight';
+import NonprofitStrategy from './components/NonprofitStrategy';
+import GovernmentConsulting from './components/GovernmentConsulting';
+import InnovationStrategy from './components/InnovationStrategy';
+import CommunityImpact from './components/CommunityImpact';
+import CreativeStorytelling from './components/CreativeStorytelling';
 import Studio from './components/Studio';
 import Podcast from './components/Podcast';
 import BookingSession from './components/BookingSession';
@@ -22,6 +27,11 @@ const App: React.FC = () => {
       <Partners />
       <About />
       <CSRHighlight />
+      <NonprofitStrategy />
+      <GovernmentConsulting />
+      <InnovationStrategy />
+      <CommunityImpact />
+      <CreativeStorytelling />
       <Services />
       <Studio />
       <Podcast />
