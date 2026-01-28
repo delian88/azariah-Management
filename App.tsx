@@ -19,6 +19,7 @@ import AiForceCommunity from './components/AiForceCommunity';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ChatWidget from './components/ChatWidget';
+import LeadMagnet from './components/LeadMagnet';
 import { NavigationProvider, useNavigation } from './NavigationContext';
 
 const AppContent: React.FC = () => {
@@ -40,12 +41,7 @@ const AppContent: React.FC = () => {
           </>
         );
       case '/about':
-        return (
-          <div className="pt-20">
-            <About />
-            <AiForceCommunity />
-          </div>
-        );
+        return <div className="pt-20"><About /><AiForceCommunity /></div>;
       case '/services':
         return (
           <div className="pt-20">
@@ -58,30 +54,15 @@ const AppContent: React.FC = () => {
           </div>
         );
       case '/studio':
-        return (
-          <div className="pt-20">
-            <Studio />
-            <CreativeStorytelling />
-          </div>
-        );
+        return <div className="pt-20"><Studio /><CreativeStorytelling /></div>;
       case '/podcast':
-        return (
-          <div className="pt-20">
-            <Podcast />
-          </div>
-        );
+        return <div className="pt-20"><Podcast /></div>;
       case '/booking':
-        return (
-          <div className="pt-20">
-            <BookingSession />
-          </div>
-        );
+        return <div className="pt-20"><BookingSession /></div>;
       case '/contact':
-        return (
-          <div className="pt-20">
-            <Contact />
-          </div>
-        );
+        return <div className="pt-20"><Contact /></div>;
+      case '/blueprint':
+        return <div className="pt-20"><LeadMagnet /></div>;
       default:
         return (
           <div className="py-40 text-center">

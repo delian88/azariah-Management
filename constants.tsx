@@ -2,7 +2,6 @@
 import React from 'react';
 import { ServiceItem, NavItem } from './types';
 
-// Icons using SVG directly
 export const Icons = {
   Chart: () => (
     <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -152,6 +151,13 @@ export const COMPANY_INFO = {
   phone: "+1 (240) 813-0308",
   logoUrl: "https://static.wixstatic.com/media/a3c155_2b724620025141e0892095906201657c~mv2.png",
   aboutText: `Azariah Management Group (AMG) is a multidisciplinary consulting and media firm helping organizations build stronger communities, accelerate growth, and execute with confidence. We combine corporate strategy, innovation and AI consulting, government and nonprofit expertise, and creative storytelling through Studio AMG.`,
+};
+
+export const LEAD_MAGNET = {
+  title: "The Community Impact Blueprint™",
+  subtitle: "AMG’s 7-Step Framework for High-Impact, Sustainable Programs",
+  heroH1: "Unlock Your Organization’s Next Level of Impact",
+  description: "Created for nonprofits, public agencies, and mission-driven businesses ready to scale their social impact with confidence.",
 };
 
 export const STUDIO_INFO = {

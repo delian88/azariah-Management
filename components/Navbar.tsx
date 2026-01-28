@@ -13,12 +13,10 @@ const Navbar: React.FC = () => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Sync scroll lock when mobile menu is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -38,15 +36,13 @@ const Navbar: React.FC = () => {
         <div className="flex justify-between items-center h-14 sm:h-16">
           <div className="flex-shrink-0 flex items-center group cursor-pointer">
             <Link href="/" className="flex items-center">
-              <div className={`p-1 sm:p-1.5 rounded-lg transition-all duration-300 overflow-hidden ${(!scrolled && currentPath === '/') ? 'bg-white shadow-xl scale-105 sm:scale-110' : 'bg-transparent'}`}>
+              {/* Ensure logo visibility with a professional white background container */}
+              <div className={`p-1 sm:p-1.5 rounded-lg transition-all duration-500 overflow-hidden ${(!scrolled && currentPath === '/') ? 'bg-white shadow-2xl scale-110 translate-y-1' : 'bg-transparent'}`}>
                 <img 
                   src={COMPANY_INFO.logoUrl} 
                   alt={COMPANY_INFO.name} 
-                  className="h-8 sm:h-12 w-auto transition-all duration-300 transform group-hover:scale-105"
+                  className="h-10 sm:h-12 w-auto transition-all duration-300 transform group-hover:scale-105"
                   style={{ objectFit: 'contain' }}
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src = 'https://placehold.co/400x200/00548B/ffffff?text=AMG+GROUP';
-                  }}
                 />
               </div>
             </Link>
@@ -61,6 +57,8 @@ const Navbar: React.FC = () => {
                   <Link
                     key={item.label}
                     href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className={`relative px-3 py-2 text-sm font-bold tracking-wide transition-colors group ${
                       (scrolled || currentPath !== '/')
                         ? (isActive ? 'text-amg-blue' : 'text-amg-grey hover:text-amg-blue')
@@ -75,14 +73,15 @@ const Navbar: React.FC = () => {
                 );
               })}
               <Link 
-                href="/contact" 
-                className={`ml-4 font-bold px-7 py-3 rounded-full transition-all shadow-lg transform hover:-translate-y-1 active:scale-95 ${
+                href="/blueprint" 
+                target="_blank"
+                className={`ml-4 font-black px-7 py-3 rounded-full transition-all shadow-lg transform hover:-translate-y-1 active:scale-95 ${
                   (scrolled || currentPath !== '/')
-                    ? 'bg-amg-blue text-white hover:bg-amg-green shadow-amg-blue/20' 
-                    : 'bg-amg-green text-white hover:bg-white hover:text-amg-blue shadow-amg-green/30'
+                    ? 'bg-amg-green text-white hover:bg-amg-blue' 
+                    : 'bg-amg-green text-white hover:bg-white hover:text-amg-blue'
                 }`}
               >
-                Get a Quote
+                Blueprint
               </Link>
             </div>
           </div>
@@ -114,31 +113,23 @@ const Navbar: React.FC = () => {
             <Link
               key={item.label}
               href={item.href}
+              target="_blank"
               onClick={() => setIsOpen(false)}
               className={`block px-4 py-4 rounded-xl text-lg font-bold border-b border-gray-50 transition-all ${
-                currentPath === item.href
-                  ? 'text-amg-blue bg-amg-blue/5' 
-                  : 'text-amg-grey hover:text-amg-blue hover:bg-gray-50'
+                currentPath === item.href ? 'text-amg-blue bg-amg-blue/5' : 'text-amg-grey'
               }`}
             >
               {item.label}
             </Link>
           ))}
           <Link 
-            href="/contact"
+            href="/blueprint"
+            target="_blank"
             onClick={() => setIsOpen(false)}
-            className="block w-full text-center mt-10 bg-amg-blue text-white font-bold px-4 py-5 rounded-xl shadow-xl shadow-amg-blue/20 hover:bg-amg-green transition-colors"
+            className="block w-full text-center mt-10 bg-amg-blue text-white font-bold px-4 py-5 rounded-xl shadow-xl shadow-amg-blue/20"
           >
-            Get a Quote
+            Blueprint Landing Page
           </Link>
-          
-          <div className="pt-12 text-center">
-            <p className="text-gray-400 text-xs font-bold uppercase tracking-widest mb-4">Connect With Us</p>
-            <div className="flex justify-center space-x-4">
-              <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-amg-blue"><Icons.Globe /></div>
-              <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-amg-blue"><Icons.Users /></div>
-            </div>
-          </div>
         </div>
       </div>
     </nav>

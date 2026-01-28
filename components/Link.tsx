@@ -6,10 +6,15 @@ interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   href: string;
 }
 
-const Link: React.FC<LinkProps> = ({ href, children, onClick, ...props }) => {
+const Link: React.FC<LinkProps> = ({ href, children, onClick, target, ...props }) => {
   const { navigate } = useNavigation();
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    // If target is _blank, we let the default browser behavior handle it
+    if (target === '_blank') {
+      return;
+    }
+
     if (onClick) {
       onClick(e);
     }
@@ -19,13 +24,10 @@ const Link: React.FC<LinkProps> = ({ href, children, onClick, ...props }) => {
       e.preventDefault();
       navigate(href);
     } else if (href.startsWith('#')) {
-      // For hash links, check if we are on the home page
       const currentPath = window.location.pathname;
       if (currentPath === '/') {
         // Just let the default browser behavior scroll
       } else {
-        // Navigate home first then scroll? 
-        // Simpler for this implementation: navigate to '/'
         e.preventDefault();
         navigate('/');
       }
@@ -33,7 +35,7 @@ const Link: React.FC<LinkProps> = ({ href, children, onClick, ...props }) => {
   };
 
   return (
-    <a href={href} onClick={handleClick} {...props}>
+    <a href={href} onClick={handleClick} target={target} {...props}>
       {children}
     </a>
   );

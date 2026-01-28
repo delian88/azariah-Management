@@ -16,52 +16,46 @@ const Hero: React.FC = () => {
         />
       </div>
 
-      {/* Animated Gradient Accents matching logo lime green */}
+      {/* Animated Gradient Accents */}
       <div className="absolute top-1/4 -left-20 w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] bg-amg-green/10 rounded-full blur-[100px] sm:blur-[140px] animate-pulse-slow"></div>
-      <div className="absolute bottom-1/4 -right-20 w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] bg-white/5 rounded-full blur-[100px] sm:blur-[140px] animate-pulse-slow" style={{ animationDelay: '2s' }}></div>
 
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="max-w-4xl">
-          <div className="inline-block px-4 py-2 mb-6 sm:mb-8 border border-white/20 rounded-full bg-white/10 backdrop-blur-md animate-fade-in-down shadow-2xl">
+          <div className="inline-block px-4 py-2 mb-6 sm:mb-8 border border-white/20 rounded-full bg-white/10 backdrop-blur-md shadow-2xl">
             <span className="text-white font-black text-[9px] sm:text-[10px] uppercase tracking-[0.2em] sm:tracking-[0.4em] flex items-center gap-2 sm:gap-3">
               <span className="w-1.5 h-1.5 rounded-full bg-amg-green animate-ping"></span>
               {COMPANY_INFO.tagline}
             </span>
           </div>
           
-          <h1 className="text-4xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-white font-heading tracking-tighter mb-6 sm:mb-8 leading-[1.1] sm:leading-[0.85] animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+          <h1 className="text-4xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-white font-heading tracking-tighter mb-6 sm:mb-8 leading-[1.1] sm:leading-[0.85] animate-fade-in-up">
             {COMPANY_INFO.shortName} <br/>
             <span className="text-gradient brightness-125">
               Strategic Force
             </span>
           </h1>
           
-          <p className="mt-4 text-lg sm:text-xl md:text-2xl text-gray-200 mb-8 sm:mb-12 leading-relaxed font-light animate-fade-in-up max-w-2xl" style={{ animationDelay: '0.3s' }}>
+          <p className="mt-4 text-lg sm:text-xl md:text-2xl text-gray-200 mb-8 sm:mb-12 leading-relaxed font-light max-w-2xl animate-fade-in-up">
             Empowering <strong>Global Leaders</strong> through Integrated Strategic Consulting, AI Innovation, and Professional Media Storytelling.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 animate-fade-in-up">
             <Link
-              href="/services"
-              className="group relative inline-flex items-center justify-center px-8 sm:px-12 py-4 sm:py-5 text-base sm:text-lg font-black rounded-full text-white bg-amg-green overflow-hidden transition-all shadow-2xl shadow-amg-green/40 hover:-translate-y-1 active:scale-95"
+              href="/blueprint"
+              target="_blank"
+              className="group relative inline-flex items-center justify-center px-8 sm:px-12 py-4 sm:py-5 text-base sm:text-lg font-black rounded-full text-white bg-amg-green overflow-hidden transition-all shadow-2xl"
             >
-              <span className="relative z-10 uppercase tracking-widest text-[10px] sm:text-xs">Our Expertise</span>
-              <div className="absolute inset-0 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500 ease-out z-0 opacity-20"></div>
+              <span className="relative z-10 uppercase tracking-widest text-[10px] sm:text-xs">Download Blueprint</span>
             </Link>
             <Link
               href="/booking"
-              className="group inline-flex items-center justify-center px-8 sm:px-12 py-4 sm:py-5 border-2 border-white/40 backdrop-blur-sm text-base sm:text-lg font-black rounded-full text-white hover:bg-white hover:text-amg-blue transition-all hover:shadow-2xl hover:-translate-y-1 active:scale-95"
+              target="_blank"
+              className="group inline-flex items-center justify-center px-8 sm:px-12 py-4 sm:py-5 border-2 border-white/40 backdrop-blur-sm text-base sm:text-lg font-black rounded-full text-white hover:bg-white hover:text-amg-blue transition-all"
             >
               <span className="uppercase tracking-widest text-[10px] sm:text-xs">Book a Session</span>
             </Link>
           </div>
         </div>
-      </div>
-      
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 sm:bottom-12 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center opacity-40 animate-bounce">
-        <div className="w-px h-8 sm:h-12 bg-gradient-to-b from-white to-transparent"></div>
-        <p className="text-white text-[8px] sm:text-[9px] font-black tracking-[0.5em] uppercase mt-2 sm:mt-4">Scroll</p>
       </div>
     </section>
   );
