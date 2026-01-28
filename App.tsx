@@ -63,7 +63,7 @@ const AppContent: React.FC = () => {
   useEffect(() => {
     if (isLoaded) {
       // Trigger welcome sound after a slight delay for better UX
-      setTimeout(playWelcomeSound, 800);
+      setTimeout(playWelcomeSound, 500);
       
       const timer = setTimeout(() => setShouldRenderLoader(false), 1100);
       return () => clearTimeout(timer);
@@ -71,40 +71,56 @@ const AppContent: React.FC = () => {
   }, [isLoaded]);
 
   const renderedContent = useMemo(() => {
-    window.scrollTo(0, 0);
-    const path = currentPath.split('?')[0].split('#')[0];
-    
-    if (path === '/about') return <div className="pt-20"><About /><AiForceCommunity /></div>;
-    if (path === '/services') return <div className="pt-20"><Services /><CSRHighlight /><NonprofitStrategy /><GovernmentConsulting /><InnovationStrategy /><CommunityImpact /></div>;
-    if (path === '/studio') return <div className="pt-20"><Studio /><CreativeStorytelling /></div>;
-    if (path === '/podcast') return <div className="pt-20"><Podcast /></div>;
-    if (path === '/booking') return <div className="pt-20"><BookingSession /></div>;
-    if (path === '/contact') return <div className="pt-20"><Contact /></div>;
-    if (path === '/blueprint') return <div className="pt-20"><LeadMagnet /></div>;
+    try {
+      window.scrollTo(0, 0);
+      
+      // Normalize path to handle root variations like /index.html, empty strings, or base paths
+      const path = currentPath.split('?')[0].split('#')[0];
+      
+      const routes: Record<string, React.ReactNode> = {
+        '/about': <div className="pt-20"><About /><AiForceCommunity /></div>,
+        '/services': <div className="pt-20"><Services /><CSRHighlight /><NonprofitStrategy /><GovernmentConsulting /><InnovationStrategy /><CommunityImpact /></div>,
+        '/studio': <div className="pt-20"><Studio /><CreativeStorytelling /></div>,
+        '/podcast': <div className="pt-20"><Podcast /></div>,
+        '/booking': <div className="pt-20"><BookingSession /></div>,
+        '/contact': <div className="pt-20"><Contact /></div>,
+        '/blueprint': <div className="pt-20"><LeadMagnet /></div>,
+      };
 
-    return (
-      <>
-        <Hero />
-        <Partners />
-        <About />
-        <Services />
-        <CSRHighlight />
-        <NonprofitStrategy />
-        <div id="blueprint">
-           <LeadMagnet />
-        </div>
-        <GovernmentConsulting />
-        <InnovationStrategy />
-        <CommunityImpact />
-        <CreativeStorytelling />
-        <Studio />
-        <Podcast />
-        <AiForceCommunity />
-        <FinalCTA />
-        <BookingSession />
-        <Contact />
-      </>
-    );
+      // If the path matches a route, return it. Otherwise, default to Home content.
+      if (routes[path]) {
+        return routes[path];
+      }
+
+      // Default Home Content (Fall-through for fail-safe rendering)
+      return (
+        <>
+          <Hero />
+          <Partners />
+          <About />
+          <Services />
+          <CSRHighlight />
+          <NonprofitStrategy />
+          <div id="blueprint">
+             <LeadMagnet />
+          </div>
+          <GovernmentConsulting />
+          <InnovationStrategy />
+          <CommunityImpact />
+          <CreativeStorytelling />
+          <Studio />
+          <Podcast />
+          <AiForceCommunity />
+          <FinalCTA />
+          <BookingSession />
+          <Contact />
+        </>
+      );
+    } catch (err) {
+      console.error("Critical rendering error:", err);
+      // Absolute fallback if everything else fails
+      return <div className="py-40 text-center"><h1 className="text-2xl font-bold">Something went wrong.</h1><button onClick={() => window.location.href = '/'} className="mt-4 text-amg-blue underline">Return Home</button></div>;
+    }
   }, [currentPath]);
 
   return (

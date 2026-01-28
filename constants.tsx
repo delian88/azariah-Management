@@ -72,7 +72,7 @@ export const Icons = {
   ),
   Play: () => (
     <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" />
        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
     </svg>
   ),
@@ -133,12 +133,16 @@ export const SERVICES: ServiceItem[] = [
 ];
 
 export const PARTNERS = [
-  { id: 1, name: 'AI Force', logo: 'https://placehold.co/200x80/ffffff/00548B?text=AI+FORCE&font=montserrat' },
-  { id: 2, name: 'Impact Global', logo: 'https://placehold.co/200x80/ffffff/00548B?text=IMPACT+GLOBAL&font=montserrat' },
-  { id: 3, name: 'Future Media', logo: 'https://placehold.co/200x80/ffffff/00548B?text=FUTURE+MEDIA&font=montserrat' },
-  { id: 4, name: 'DC Innovation', logo: 'https://placehold.co/200x80/ffffff/00548B?text=DC+INNOVATION&font=montserrat' },
-  { id: 5, name: 'Legacy Group', logo: 'https://placehold.co/200x80/ffffff/00548B?text=LEGACY+GROUP&font=montserrat' },
-  { id: 6, name: 'Visionary Partners', logo: 'https://placehold.co/200x80/ffffff/00548B?text=VISIONARY&font=montserrat' },
+  { id: 1, name: 'Grey Consortium UK', logo: 'https://placehold.co/300x120/00548B/FFFFFF?text=GREY+UK&font=montserrat' },
+  { id: 2, name: 'Grey Consortium South Africa', logo: 'https://placehold.co/300x120/00548B/FFFFFF?text=GREY+SA&font=montserrat' },
+  { id: 3, name: 'Grey Cinema UK', logo: 'https://placehold.co/300x120/00548B/FFFFFF?text=GREY+CINEMA&font=montserrat' },
+  { id: 4, name: 'Knights of Columbus', logo: 'https://placehold.co/300x120/00548B/FFFFFF?text=ST.+MATHEWS&font=montserrat' },
+  { id: 5, name: 'Luxurious Decorations', logo: 'https://placehold.co/300x120/00548B/FFFFFF?text=LUXURIOUS+LONDON&font=montserrat' },
+  { id: 6, name: 'Foundation of Luv', logo: 'https://placehold.co/300x120/00548B/FFFFFF?text=LUV+FOUNDATION&font=montserrat' },
+  { id: 7, name: 'World AI Force', logo: 'https://placehold.co/300x120/00548B/FFFFFF?text=WORLD+AI+FORCE&font=montserrat' },
+  { id: 8, name: 'Premegage Tech', logo: 'https://placehold.co/300x120/00548B/FFFFFF?text=PREMEGAGE&font=montserrat' },
+  { id: 9, name: 'NYCN North America', logo: 'https://placehold.co/300x120/00548B/FFFFFF?text=NYCN+NA&font=montserrat' },
+  { id: 10, name: 'BlackbyAngel', logo: 'https://placehold.co/300x120/00548B/FFFFFF?text=BLACKBYANGEL&font=montserrat' },
 ];
 
 export const COMPANY_INFO = {
