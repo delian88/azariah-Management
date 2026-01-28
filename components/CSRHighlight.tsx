@@ -26,8 +26,8 @@ const CSRHighlight: React.FC = () => {
                 {/* Floating Metric Card - Business Developer ROI focus */}
                 <div className="absolute bottom-10 left-10 right-10 bg-white/95 backdrop-blur-md p-8 rounded-2xl shadow-2xl flex items-center justify-between border border-white/20">
                   <div>
-                    <span className="block text-[10px] font-black text-amg-green uppercase tracking-[0.3em] mb-2">Portfolio Performance</span>
-                    <span className="block text-3xl font-black text-amg-blue tracking-tighter">Impact ROI+</span>
+                    <span className="block text-[10px] font-black text-amg-green uppercase tracking-[0.3em] mb-2">Impact ROI Metrics</span>
+                    <span className="block text-3xl font-black text-amg-blue tracking-tighter">Strategic Credibility</span>
                   </div>
                   <div className="w-14 h-14 bg-amg-green text-white rounded-2xl flex items-center justify-center shadow-lg transform rotate-3">
                     <Icons.Chart />
@@ -43,49 +43,46 @@ const CSRHighlight: React.FC = () => {
           {/* Text Content Side - Optimized for SEO and Strategic Narrative */}
           <div className="reveal from-right order-1 lg:order-2">
             <div className="inline-block px-4 py-1.5 mb-8 bg-amg-green/10 rounded-full border border-amg-green/20">
-              <span className="text-amg-green font-bold tracking-[0.2em] uppercase text-[10px]">Flagship Service Category</span>
+              <span className="text-amg-green font-bold tracking-[0.2em] uppercase text-[10px]">Flagship Service</span>
             </div>
             
-            <h2 className="text-4xl md:text-6xl font-black text-amg-blue font-heading mb-8 leading-[1.1] tracking-tight">
+            <h2 className="text-4xl md:text-6xl font-black text-amg-blue font-heading mb-6 leading-[1.1] tracking-tight">
               Corporate Social <br/>
               <span className="text-gradient">Responsibility Consulting</span>
             </h2>
             
-            <p className="text-xl text-gray-600 leading-relaxed mb-10 font-light">
-              As CSR budgets continue to rise globally, Azariah Management Group frames social leadership as a <strong>high-value strategic asset</strong>. We partner with organizations to build authentic social infrastructure that scales community relevance and delivers measurable business outcomes.
+            <p className="text-xl text-gray-700 leading-relaxed mb-8 font-medium">
+              We design and execute CSR strategies that strengthen communities, align with corporate values, and deliver measurable results.
             </p>
 
-            {/* Bullet Points for UX clarity and scanning */}
-            <div className="grid grid-cols-1 gap-6 mb-12">
-              <div className="flex items-start gap-5 p-6 rounded-2xl hover:bg-white hover:shadow-xl transition-all duration-300 border border-transparent hover:border-gray-100 group">
-                <div className="flex-shrink-0 w-12 h-12 bg-amg-blue/5 text-amg-blue flex items-center justify-center rounded-xl group-hover:bg-amg-green group-hover:text-white transition-colors">
-                  <Icons.Handshake />
+            {/* Bullet Points for UX clarity and scanning - Content based on User request */}
+            <div className="space-y-4 mb-10">
+              {[
+                "CSR strategy development & execution",
+                "Community impact framework design",
+                "Partnership development (local, national, global)",
+                "Grantmaking & philanthropic program support",
+                "CSR reporting, metrics, and storytelling",
+                "Employee engagement & volunteerism programs"
+              ].map((point, i) => (
+                <div key={i} className="flex items-center gap-4 group">
+                  <div className="flex-shrink-0 w-6 h-6 bg-amg-green/10 rounded-full flex items-center justify-center group-hover:bg-amg-green transition-colors">
+                    <svg className="w-3.5 h-3.5 text-amg-green group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <span className="text-gray-600 font-medium group-hover:text-amg-blue transition-colors">
+                    {point}
+                  </span>
                 </div>
-                <div>
-                  <h4 className="text-lg font-black text-amg-blue mb-1">Strategic Purpose Alignment</h4>
-                  <p className="text-sm text-gray-500 leading-relaxed">Showcasing CSR leadership that reinforces your core brand identity and deepens community trust.</p>
-                </div>
-              </div>
+              ))}
+            </div>
 
-              <div className="flex items-start gap-5 p-6 rounded-2xl hover:bg-white hover:shadow-xl transition-all duration-300 border border-transparent hover:border-gray-100 group">
-                <div className="flex-shrink-0 w-12 h-12 bg-amg-blue/5 text-amg-blue flex items-center justify-center rounded-xl group-hover:bg-amg-green group-hover:text-white transition-colors">
-                  <Icons.Globe />
-                </div>
-                <div>
-                  <h4 className="text-lg font-black text-amg-blue mb-1">Stakeholder & Partnership Growth</h4>
-                  <p className="text-sm text-gray-500 leading-relaxed">Driving ROI through robust stakeholder alignment and expansive social partnership networks.</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-5 p-6 rounded-2xl hover:bg-white hover:shadow-xl transition-all duration-300 border border-transparent hover:border-gray-100 group">
-                <div className="flex-shrink-0 w-12 h-12 bg-amg-blue/5 text-amg-blue flex items-center justify-center rounded-xl group-hover:bg-amg-green group-hover:text-white transition-colors">
-                  <Icons.Sparkles />
-                </div>
-                <div>
-                  <h4 className="text-lg font-black text-amg-blue mb-1">Measurable Impact Metrics</h4>
-                  <p className="text-sm text-gray-500 leading-relaxed">Emphasizing purpose with hard data—turning social initiatives into quantifiable organizational performance.</p>
-                </div>
-              </div>
+            {/* Outcome Statement - Emphasized */}
+            <div className="mb-12 p-6 bg-amg-blue/5 border-l-4 border-amg-green rounded-r-2xl">
+              <p className="text-amg-blue font-bold italic">
+                Outcome: <span className="text-gray-700 font-normal">A CSR function that is strategic, credible, and deeply connected to the communities you serve.</span>
+              </p>
             </div>
 
             <div className="flex flex-col sm:flex-row items-center gap-8">
@@ -93,11 +90,11 @@ const CSRHighlight: React.FC = () => {
                 href="#booking" 
                 className="w-full sm:w-auto text-center bg-amg-blue text-white px-10 py-5 rounded-full font-black uppercase tracking-widest text-xs hover:bg-amg-green transition-all shadow-2xl shadow-amg-blue/20 hover:shadow-amg-green/40 transform hover:-translate-y-1"
               >
-                Start CSR Strategy Session
+                Schedule CSR Strategy Session
               </a>
               <div className="flex flex-col">
-                <span className="text-gray-400 text-[10px] font-black uppercase tracking-[0.2em] mb-1">Expert Advisor</span>
-                <span className="text-amg-blue font-bold text-sm underline decoration-amg-green decoration-2 underline-offset-4 cursor-pointer hover:text-amg-green transition-colors">Download CSR Impact Guide</span>
+                <span className="text-gray-400 text-[10px] font-black uppercase tracking-[0.2em] mb-1">Strategic Advisor</span>
+                <span className="text-amg-blue font-bold text-sm underline decoration-amg-green decoration-2 underline-offset-4 cursor-pointer hover:text-amg-green transition-colors">View CSR Case Studies</span>
               </div>
             </div>
           </div>
