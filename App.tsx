@@ -1,5 +1,5 @@
 
-import React, { useMemo, useState, useEffect } from 'react';
+import React, { useMemo } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -19,24 +19,14 @@ import AiForceCommunity from './components/AiForceCommunity';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ChatWidget from './components/ChatWidget';
-import LoadingScreen from './components/LoadingScreen';
 import LeadMagnet from './components/LeadMagnet';
 import { NavigationProvider, useNavigation } from './NavigationContext';
 
 const AppContent: React.FC = () => {
   const { currentPath } = useNavigation();
-  const [isAppLoaded, setIsAppLoaded] = useState(false);
-  const [showLoader, setShowLoader] = useState(true);
-
-  useEffect(() => {
-    if (isAppLoaded) {
-      // Small buffer for the fade animation
-      const timer = setTimeout(() => setShowLoader(false), 1000);
-      return () => clearTimeout(timer);
-    }
-  }, [isAppLoaded]);
 
   const renderedContent = useMemo(() => {
+    // Return to the top on page change
     window.scrollTo(0, 0);
 
     switch (currentPath) {
@@ -45,9 +35,6 @@ const AppContent: React.FC = () => {
           <>
             <Hero />
             <Partners />
-            <div id="blueprint">
-               <LeadMagnet />
-            </div>
             <About />
             <Services />
             <FinalCTA />
@@ -87,26 +74,13 @@ const AppContent: React.FC = () => {
   }, [currentPath]);
 
   return (
-    <div className="relative min-h-screen bg-white font-sans text-gray-900">
-      {/* Loading Screen Overlay */}
-      {showLoader && (
-        <div className={`transition-opacity duration-1000 ${isAppLoaded ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
-          <LoadingScreen 
-            onFinished={() => setIsAppLoaded(true)} 
-            isVisible={showLoader} 
-          />
-        </div>
-      )}
-
-      {/* Main App Content */}
-      <div className={`flex flex-col min-h-screen transition-all duration-1000 ${isAppLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-        <Navbar />
-        <main className="flex-grow">
-          {renderedContent}
-        </main>
-        <Footer />
-        <ChatWidget />
-      </div>
+    <div className="min-h-screen bg-white flex flex-col font-sans text-gray-900">
+      <Navbar />
+      <main className="flex-grow">
+        {renderedContent}
+      </main>
+      <Footer />
+      <ChatWidget />
     </div>
   );
 };
