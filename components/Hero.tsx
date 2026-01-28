@@ -42,14 +42,12 @@ const Hero: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 animate-fade-in-up">
             <Link
               href="/blueprint"
-              target="_blank"
               className="group relative inline-flex items-center justify-center px-8 sm:px-12 py-4 sm:py-5 text-base sm:text-lg font-black rounded-full text-white bg-amg-green overflow-hidden transition-all shadow-2xl"
             >
               <span className="relative z-10 uppercase tracking-widest text-[10px] sm:text-xs">Download Blueprint</span>
             </Link>
             <Link
               href="/booking"
-              target="_blank"
               className="group inline-flex items-center justify-center px-8 sm:px-12 py-4 sm:py-5 border-2 border-white/40 backdrop-blur-sm text-base sm:text-lg font-black rounded-full text-white hover:bg-white hover:text-amg-blue transition-all"
             >
               <span className="uppercase tracking-widest text-[10px] sm:text-xs">Book a Session</span>

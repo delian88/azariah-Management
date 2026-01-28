@@ -1,5 +1,5 @@
 
-import React, { useMemo } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -19,27 +19,52 @@ import AiForceCommunity from './components/AiForceCommunity';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ChatWidget from './components/ChatWidget';
+import LoadingScreen from './components/LoadingScreen';
 import LeadMagnet from './components/LeadMagnet';
 import { NavigationProvider, useNavigation } from './NavigationContext';
 
 const AppContent: React.FC = () => {
   const { currentPath } = useNavigation();
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    // Standard initialization
+    const timer = setTimeout(() => setIsLoaded(true), 2000);
+    return () => clearTimeout(timer);
+  }, []);
 
   const renderedContent = useMemo(() => {
-    // Return to the top on page change
     window.scrollTo(0, 0);
 
+    // If we're on the home page, show the full content stack
+    if (currentPath === '/') {
+      return (
+        <>
+          <Hero />
+          <Partners />
+          <About />
+          <Services />
+          <CSRHighlight />
+          <NonprofitStrategy />
+          <div id="blueprint">
+             <LeadMagnet />
+          </div>
+          <GovernmentConsulting />
+          <InnovationStrategy />
+          <CommunityImpact />
+          <CreativeStorytelling />
+          <Studio />
+          <Podcast />
+          <AiForceCommunity />
+          <FinalCTA />
+          <BookingSession />
+          <Contact />
+        </>
+      );
+    }
+
+    // Secondary routes for deep-linking
     switch (currentPath) {
-      case '/':
-        return (
-          <>
-            <Hero />
-            <Partners />
-            <About />
-            <Services />
-            <FinalCTA />
-          </>
-        );
       case '/about':
         return <div className="pt-20"><About /><AiForceCommunity /></div>;
       case '/services':
@@ -74,13 +99,21 @@ const AppContent: React.FC = () => {
   }, [currentPath]);
 
   return (
-    <div className="min-h-screen bg-white flex flex-col font-sans text-gray-900">
-      <Navbar />
-      <main className="flex-grow">
-        {renderedContent}
-      </main>
-      <Footer />
-      <ChatWidget />
+    <div className="relative min-h-screen bg-white font-sans text-gray-900">
+      {/* Non-blocking automated loading screen */}
+      <LoadingScreen 
+        onFinished={() => setIsLoaded(true)} 
+        isVisible={!isLoaded} 
+      />
+
+      <div className={`flex flex-col min-h-screen transition-all duration-1000 ease-in-out ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+        <Navbar />
+        <main className="flex-grow">
+          {renderedContent}
+        </main>
+        <Footer />
+        <ChatWidget />
+      </div>
     </div>
   );
 };
