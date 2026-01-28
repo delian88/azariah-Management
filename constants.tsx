@@ -85,13 +85,13 @@ export const Icons = {
 };
 
 export const NAV_ITEMS: NavItem[] = [
-  { label: 'Home', href: '#home' },
-  { label: 'About', href: '#about' },
-  { label: 'Services', href: '#services' },
-  { label: 'Creative Studio', href: '#studio' },
-  { label: 'Podcast', href: '#podcast' },
-  { label: 'Booking', href: '#booking' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/about' },
+  { label: 'Services', href: '/services' },
+  { label: 'Creative Studio', href: '/studio' },
+  { label: 'Podcast', href: '/podcast' },
+  { label: 'Booking', href: '/booking' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 export const SERVICES: ServiceItem[] = [
@@ -134,12 +134,12 @@ export const SERVICES: ServiceItem[] = [
 ];
 
 export const PARTNERS = [
-  { id: 1, name: 'AI Force', logo: 'https://placehold.co/200x80/ffffff/0F2C59?text=AI+FORCE&font=montserrat' },
-  { id: 2, name: 'Impact Global', logo: 'https://placehold.co/200x80/ffffff/0F2C59?text=IMPACT+GLOBAL&font=montserrat' },
-  { id: 3, name: 'Future Media', logo: 'https://placehold.co/200x80/ffffff/0F2C59?text=FUTURE+MEDIA&font=montserrat' },
-  { id: 4, name: 'DC Innovation', logo: 'https://placehold.co/200x80/ffffff/0F2C59?text=DC+INNOVATION&font=montserrat' },
-  { id: 5, name: 'Legacy Group', logo: 'https://placehold.co/200x80/ffffff/0F2C59?text=LEGACY+GROUP&font=montserrat' },
-  { id: 6, name: 'Visionary Partners', logo: 'https://placehold.co/200x80/ffffff/0F2C59?text=VISIONARY&font=montserrat' },
+  { id: 1, name: 'AI Force', logo: 'https://placehold.co/200x80/ffffff/00548B?text=AI+FORCE&font=montserrat' },
+  { id: 2, name: 'Impact Global', logo: 'https://placehold.co/200x80/ffffff/00548B?text=IMPACT+GLOBAL&font=montserrat' },
+  { id: 3, name: 'Future Media', logo: 'https://placehold.co/200x80/ffffff/00548B?text=FUTURE+MEDIA&font=montserrat' },
+  { id: 4, name: 'DC Innovation', logo: 'https://placehold.co/200x80/ffffff/00548B?text=DC+INNOVATION&font=montserrat' },
+  { id: 5, name: 'Legacy Group', logo: 'https://placehold.co/200x80/ffffff/00548B?text=LEGACY+GROUP&font=montserrat' },
+  { id: 6, name: 'Visionary Partners', logo: 'https://placehold.co/200x80/ffffff/00548B?text=VISIONARY&font=montserrat' },
 ];
 
 export const COMPANY_INFO = {
@@ -150,11 +150,8 @@ export const COMPANY_INFO = {
   address: "Upper Marlboro, MD 20772, USA",
   email: "info@azariahmg.com",
   phone: "+1 (240) 813-0308",
-  // Updated logo URL for better reliability and transparency support
-  logoUrl: "https://static.wixstatic.com/media/a3c155_2b724620025141e0892095906201657c~mv2.png/v1/fill/w_448,h_212,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/AMG%20Logo.png",
-  aboutText: `Azariah Management Group (AMG) is an integrated strategic ecosystem designed to empower CEOs, Government Directors, and Social Impact Leaders. We bridge the gap between high-level management consulting and professional creative execution.
-
-  Our multi-disciplinary approach combines Corporate Social Responsibility, Nonprofit Capacity Building, and AI-driven Innovation to ensure that organizations don't just survive—they lead. At AMG, we turn strategic vision into measurable social and business value.`,
+  logoUrl: "https://static.wixstatic.com/media/a3c155_2b724620025141e0892095906201657c~mv2.png",
+  aboutText: `Azariah Management Group (AMG) is a multidisciplinary consulting and media firm helping organizations build stronger communities, accelerate growth, and execute with confidence. We combine corporate strategy, innovation and AI consulting, government and nonprofit expertise, and creative storytelling through Studio AMG.`,
 };
 
 export const STUDIO_INFO = {

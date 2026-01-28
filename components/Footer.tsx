@@ -1,21 +1,18 @@
 
 import React from 'react';
 import { COMPANY_INFO, NAV_ITEMS } from '../constants';
+import Link from './Link';
 
 const Footer: React.FC = () => {
   return (
     <footer className="bg-amg-blue text-white pt-24 pb-12 overflow-hidden relative">
-      {/* Decorative subtle pulse */}
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-amg-green/5 rounded-full blur-[120px] translate-x-1/2 translate-y-1/2"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-24 mb-20">
           
           <div className="md:col-span-5">
-            {/* 
-                Fix: Logo has a white background. Instead of inverting it (which turns it white-on-white),
-                we keep it original and wrap it in a clean white rounded container for professional look.
-            */}
+            {/* Professional container for logo with its own background */}
             <div className="inline-block bg-white p-4 rounded-2xl shadow-2xl mb-8">
               <img 
                 src={COMPANY_INFO.logoUrl} 
@@ -23,7 +20,7 @@ const Footer: React.FC = () => {
                 className="h-16 w-auto"
                 style={{ objectFit: 'contain' }}
                 onError={(e) => {
-                  (e.target as HTMLImageElement).src = 'https://placehold.co/400x200/ffffff/00548B?text=AMG+LOGO';
+                  (e.target as HTMLImageElement).src = 'https://placehold.co/400x200/ffffff/00548B?text=AMG+GROUP';
                 }}
               />
             </div>
@@ -39,8 +36,11 @@ const Footer: React.FC = () => {
                   aria-label={platform}
                 >
                   <div className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors">
-                    {platform === 'linkedin' && <svg fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>}
-                    {platform !== 'linkedin' && <div className="w-full h-full bg-current rounded-sm opacity-50"></div>}
+                    {platform === 'linkedin' ? (
+                      <svg fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    ) : (
+                      <div className="w-full h-full bg-current rounded-sm opacity-50"></div>
+                    )}
                   </div>
                 </a>
               ))}
@@ -52,10 +52,10 @@ const Footer: React.FC = () => {
             <ul className="space-y-4">
               {NAV_ITEMS.map((item) => (
                 <li key={item.label}>
-                  <a href={item.href} className="text-gray-400 hover:text-amg-green transition-all flex items-center group">
+                  <Link href={item.href} className="text-gray-400 hover:text-amg-green transition-all flex items-center group">
                     <span className="w-0 group-hover:w-4 h-[1px] bg-amg-green mr-0 group-hover:mr-3 transition-all"></span>
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

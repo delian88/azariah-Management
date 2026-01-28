@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useNavigation } from '../NavigationContext';
 
@@ -13,10 +14,21 @@ const Link: React.FC<LinkProps> = ({ href, children, onClick, ...props }) => {
       onClick(e);
     }
     
-    // Only handle internal links
-    if (href.startsWith('/') || href.startsWith('#')) {
+    // Check for internal relative links
+    if (href.startsWith('/')) {
       e.preventDefault();
       navigate(href);
+    } else if (href.startsWith('#')) {
+      // For hash links, check if we are on the home page
+      const currentPath = window.location.pathname;
+      if (currentPath === '/') {
+        // Just let the default browser behavior scroll
+      } else {
+        // Navigate home first then scroll? 
+        // Simpler for this implementation: navigate to '/'
+        e.preventDefault();
+        navigate('/');
+      }
     }
   };
 

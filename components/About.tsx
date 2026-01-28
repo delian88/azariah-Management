@@ -1,94 +1,259 @@
 
 import React from 'react';
-import { COMPANY_INFO, Icons } from '../constants';
+import { Icons, COMPANY_INFO } from '../constants';
+import Link from './Link';
 
 const About: React.FC = () => {
   return (
-    <section id="about" className="py-24 md:py-36 bg-white relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="lg:grid lg:grid-cols-12 lg:gap-16 items-center">
+    <div className="bg-white">
+      {/* Page Header */}
+      <section className="relative py-24 md:py-32 bg-amg-blue overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+          <h1 className="text-5xl md:text-7xl font-black text-white font-heading mb-6 tracking-tight">
+            About <span className="text-amg-green">Azariah Management Group</span>
+          </h1>
+          <p className="text-xl md:text-3xl text-gray-200 font-light max-w-4xl mx-auto leading-relaxed">
+            Where Strategy, Innovation, and Social Impact Work as One
+          </p>
+        </div>
+      </section>
+
+      {/* Intro Section */}
+      <section className="py-24">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="inline-block px-4 py-1.5 mb-8 bg-amg-blue/5 rounded-full border border-amg-blue/10">
+            <span className="text-amg-blue font-bold tracking-[0.2em] uppercase text-[10px]">Our Identity</span>
+          </div>
+          <p className="text-2xl md:text-3xl text-gray-700 leading-relaxed font-light">
+            Azariah Management Group (AMG) is a multidisciplinary consulting and media firm helping
+            organizations build stronger communities, accelerate growth, and execute with confidence. We
+            combine corporate strategy, innovation and AI consulting, government and nonprofit
+            expertise, and creative storytelling through Studio AMG—delivering solutions that move
+            organizations from <span className="text-amg-blue font-bold italic">feasibility → readiness → execution</span>.
+          </p>
+        </div>
+      </section>
+
+      {/* Mission Section */}
+      <section className="py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="lg:grid lg:grid-cols-2 gap-16 items-center">
+            <div className="reveal from-left">
+              <h2 className="text-4xl font-black text-amg-blue mb-8 border-l-8 border-amg-green pl-6">Our Mission</h2>
+              <p className="text-xl text-gray-600 leading-relaxed">
+                To empower businesses, governments, and nonprofits to create sustainable, measurable impact
+                by aligning strategy, innovation, community development, and storytelling in one seamless
+                ecosystem.
+              </p>
+            </div>
+            <div className="mt-12 lg:mt-0 reveal from-right">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800" 
+                  alt="Mission Focused Collaboration"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-amg-blue/60 to-transparent"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Who We Serve */}
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black text-amg-blue mb-6">Who We Serve</h2>
+            <p className="text-xl text-gray-500 max-w-3xl mx-auto">AMG partners with organizations across industries and continents:</p>
+          </div>
           
-          {/* Content Side */}
-          <div className="lg:col-span-7 reveal from-left">
-            <div className="inline-block px-4 py-1.5 mb-8 bg-amg-blue/5 rounded-full border border-amg-blue/10">
-              <span className="text-amg-blue font-bold tracking-[0.2em] uppercase text-[10px]">Strategic Vision</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              { title: "Start-ups & MSMEs", desc: "Seeking growth, readiness, and business development support" },
+              { title: "Government & Agencies", desc: "Executing programs and modernization initiatives" },
+              { title: "Nonprofits & Foundations", desc: "Building strategy, capacity, and community impact" },
+              { title: "International Partners", desc: "U.S., EU, UK, Africa expansion and market entry" },
+              { title: "Tech & Engineering", desc: "Innovating and scaling new solutions" },
+              { title: "Creative Brands", desc: "Looking for advocacy or branded storytelling" }
+            ].map((item, i) => (
+              <div key={i} className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:border-amg-green transition-all">
+                <div className="w-12 h-12 bg-amg-blue/5 rounded-xl flex items-center justify-center text-amg-blue mb-6">
+                  <Icons.Users />
+                </div>
+                <h4 className="text-xl font-bold text-amg-blue mb-2">{item.title}</h4>
+                <p className="text-gray-500">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+          
+          <p className="mt-12 text-center text-lg text-gray-600 font-medium italic">
+            "Our clients choose AMG because we understand both the strategic landscape and the communities they're called to serve."
+          </p>
+        </div>
+      </section>
+
+      {/* Differentiation */}
+      <section className="py-24 bg-amg-blue text-white overflow-hidden relative">
+        <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-amg-green/20 rounded-full blur-[120px]"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-black mb-6">What Makes AMG Different</h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div className="p-8 bg-white/5 backdrop-blur-md rounded-3xl border border-white/10">
+              <h3 className="text-2xl font-bold text-amg-green mb-4">Integrated Consulting + Media Power</h3>
+              <p className="text-gray-300 leading-relaxed">
+                While most firms offer strategy—or storytelling—AMG merges both. Our consulting divisions
+                work hand-in-hand with Studio AMG to transform insights into campaigns, narratives, and
+                media that amplify your mission and results.
+              </p>
             </div>
-            <h2 className="text-4xl md:text-6xl font-black text-amg-blue font-heading mb-10 leading-tight">
-              We Are Your <br/>
-              <span className="text-gradient">Strategic Force Multiplier</span>
-            </h2>
-            <p className="text-xl text-gray-600 leading-relaxed mb-10 max-w-3xl">
-              {COMPANY_INFO.aboutText}
-            </p>
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 mb-12">
-               <div className="flex gap-5 group">
-                  <div className="flex-shrink-0 w-12 h-12 bg-amg-green text-white flex items-center justify-center rounded-xl shadow-lg group-hover:rotate-12 transition-transform">
-                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-lg text-amg-blue mb-1">Elite Innovation</h4>
-                    <p className="text-gray-500 text-sm">Harnessing AI to redefine organizational performance.</p>
-                  </div>
-               </div>
-               <div className="flex gap-5 group">
-                  <div className="flex-shrink-0 w-12 h-12 bg-amg-blue text-white flex items-center justify-center rounded-xl shadow-lg group-hover:rotate-12 transition-transform">
-                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7" /></svg>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-lg text-amg-blue mb-1">Global Impact</h4>
-                    <p className="text-gray-500 text-sm">Scaling missions across borders and communities.</p>
-                  </div>
-               </div>
-            </div>
-            
-            <div className="flex flex-wrap items-center gap-10 pt-10 border-t border-gray-100">
-               <div className="text-center sm:text-left">
-                  <span className="block text-4xl font-black text-amg-blue">10+</span>
-                  <span className="text-xs font-bold text-gray-400 uppercase tracking-widest">Years of Excellence</span>
-               </div>
-               <div className="text-center sm:text-left">
-                  <span className="block text-4xl font-black text-amg-blue">50+</span>
-                  <span className="text-xs font-bold text-gray-400 uppercase tracking-widest">Global Partners</span>
-               </div>
-               <div className="text-center sm:text-left">
-                  <span className="block text-4xl font-black text-amg-blue">100%</span>
-                  <span className="text-xs font-bold text-gray-400 uppercase tracking-widest">Mission Focused</span>
-               </div>
+            <div className="p-8 bg-white/5 backdrop-blur-md rounded-3xl border border-white/10">
+              <h3 className="text-2xl font-bold text-amg-green mb-4">Real-World Expertise Across Sectors</h3>
+              <p className="text-gray-300 leading-relaxed">
+                Our team brings experience from the private sector, government, public agencies, international
+                collaborations, and community organizations—giving clients multidimensional insight no single-sector firm can offer.
+              </p>
             </div>
           </div>
 
-          {/* Image Side */}
-          <div className="lg:col-span-5 mt-20 lg:mt-0 relative reveal from-right delay-300">
-            <div className="relative group">
-               {/* Background Decorative Box */}
-               <div className="absolute -top-10 -right-10 w-full h-full border-[10px] border-amg-blue/5 rounded-3xl -z-10 group-hover:translate-x-4 group-hover:translate-y-4 transition-transform duration-700"></div>
-               
-               <div className="relative rounded-3xl overflow-hidden shadow-[0_50px_100px_rgba(0,0,0,0.1)] group">
-                 <img
-                    className="w-full h-auto transform transition-transform duration-1000 group-hover:scale-105"
-                    src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
-                    alt="Team Collaboration"
-                 />
-                 <div className="absolute inset-0 bg-gradient-to-t from-amg-blue/40 to-transparent"></div>
-               </div>
+          <div className="mt-12 p-10 bg-white/10 rounded-3xl border border-white/10">
+            <h3 className="text-2xl font-bold text-amg-green mb-8">End-to-End Support</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+              {[
+                { title: "Feasibility", desc: "Research, planning, scoping" },
+                { title: "Readiness", desc: "Capacity-building, systems, compliance, positioning" },
+                { title: "Execution", desc: "Program delivery, innovation, implementation, storytelling, evaluation" }
+              ].map((step, i) => (
+                <div key={i} className="relative">
+                  <span className="text-6xl font-black text-white/5 absolute -top-4 -left-2 select-none">0{i+1}</span>
+                  <h4 className="font-bold text-xl mb-2 relative z-10">{step.title}</h4>
+                  <p className="text-gray-400 relative z-10">{step.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
-               {/* Overlapping Detail Card */}
-               <div className="absolute -bottom-10 -left-10 bg-amg-green p-8 rounded-2xl shadow-2xl max-w-[280px] hidden md:block animate-float">
-                  <div className="flex items-center gap-4 mb-4">
-                     <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
-                        {/* Fix: Icons must be imported from constants to use Icons.Briefcase here */}
-                        <Icons.Briefcase />
-                     </div>
-                     <span className="text-white font-black text-xl leading-none">Strategic Force</span>
+      {/* Global Reach */}
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="lg:grid lg:grid-cols-12 gap-16 items-center">
+            <div className="lg:col-span-7">
+              <h2 className="text-4xl font-black text-amg-blue mb-8">Our Global Reach</h2>
+              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                Through partnerships in the U.S., Europe, UK, and Africa, AMG supports diaspora innovation,
+                international market entry, cross-cultural collaboration, and global capacity building.
+              </p>
+              <div className="space-y-4 mb-8">
+                {[
+                  "Luxurious Decorations (EU/Africa operations)",
+                  "Foundation of Luv (global social impact and advocacy)",
+                  "Studio AMG (creative & media production)"
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-amg-green rounded-full"></div>
+                    <span className="text-gray-700 font-bold">{item}</span>
                   </div>
-                  <p className="text-white/80 text-sm font-medium">Turning vision into a measurable competitive advantage.</p>
+                ))}
+              </div>
+              <p className="text-amg-blue font-bold italic">
+                "We are uniquely positioned to support organizations operating across borders."
+              </p>
+            </div>
+            <div className="lg:col-span-5 mt-12 lg:mt-0">
+               <div className="p-8 bg-amg-blue/5 rounded-3xl border border-amg-blue/10">
+                  <div className="flex items-center gap-4 mb-6">
+                    <Icons.Globe />
+                    <h4 className="text-2xl font-bold text-amg-blue">US • UK • Africa • EU</h4>
+                  </div>
+                  <p className="text-gray-500 text-sm">Our multidisciplinary approach works anywhere organizations are called to lead and impact communities.</p>
                </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* Our Story */}
+      <section className="py-24 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl font-black text-amg-blue mb-8">Our Story</h2>
+          <p className="text-lg text-gray-600 leading-relaxed mb-6">
+            AMG was founded with a clear belief: innovation, community impact, and storytelling must
+            exist together to create lasting change.
+          </p>
+          <p className="text-lg text-gray-600 leading-relaxed mb-6">
+            What started as a consulting practice evolved into a global ecosystem where strategy, social
+            impact, and media are intertwined—serving clients who want not only to grow but to make a
+            difference.
+          </p>
+          <p className="text-lg text-gray-600 leading-relaxed">
+            Today, AMG supports entrepreneurs, nonprofits, public agencies, and corporate leaders in
+            building solutions that shape healthier economies, stronger communities, and more connected
+            futures.
+          </p>
+        </div>
+      </section>
+
+      {/* Impact & Approach */}
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <div>
+              <h2 className="text-3xl font-black text-amg-blue mb-8 uppercase tracking-widest border-b-2 border-amg-green inline-block pb-2">How We Create Impact</h2>
+              <ul className="space-y-6">
+                {[
+                  "Strengthen community development and CSR initiatives",
+                  "Build nonprofit capacity and design effective programs",
+                  "Support government modernization with strategic project management",
+                  "Innovate using technology, AI strategy, and digital transformation",
+                  "Expand internationally through diaspora-led economic pathways",
+                  "Amplify missions and campaigns through creative storytelling"
+                ].map((item, i) => (
+                  <li key={i} className="flex gap-4">
+                    <span className="text-amg-green font-bold text-xl">→</span>
+                    <span className="text-gray-700 leading-tight">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h2 className="text-3xl font-black text-amg-blue mb-8 uppercase tracking-widest border-b-2 border-amg-green inline-block pb-2">Our Approach</h2>
+              <p className="text-lg text-gray-600 font-bold mb-6">People-first. Insight-driven. Execution-focused.</p>
+              <p className="text-gray-600 mb-8 leading-relaxed">
+                We listen deeply, collaborate intentionally, and execute with precision. Our framework blends:
+              </p>
+              <div className="flex flex-wrap gap-3">
+                {["Strategic consulting", "Program design", "Innovation & AI", "Media & Storytelling", "Social impact evaluation", "Cross-sector partnerships"].map(pill => (
+                  <span key={pill} className="px-4 py-2 bg-amg-blue text-white text-xs font-bold rounded-full uppercase tracking-wider">{pill}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Block */}
+      <section className="py-24 bg-amg-blue text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl md:text-6xl font-black mb-8">Let’s Build Something <br/> That Creates Impact</h2>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-12">
+            Whether you’re a start-up scaling new solutions, a nonprofit driving change, or an agency
+            executing a major initiative—AMG is your partner for innovation, strategy, and community
+            advancement.
+          </p>
+          <Link href="/contact" className="inline-block bg-amg-green text-white font-black px-12 py-5 rounded-full hover:bg-white hover:text-amg-blue transition-all transform hover:-translate-y-1 shadow-2xl uppercase tracking-widest">
+            Work With AMG
+          </Link>
+        </div>
+      </section>
+    </div>
   );
 };
 
