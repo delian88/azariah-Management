@@ -150,7 +150,8 @@ export const COMPANY_INFO = {
   address: "Upper Marlboro, MD 20772, USA",
   email: "info@azariahmg.com",
   phone: "+1 (240) 813-0308",
-  logoUrl: "https://static.wixstatic.com/media/a3c155_2b724620025141e0892095906201657c~mv2.png",
+  // Updated logo URL for better reliability and transparency support
+  logoUrl: "https://static.wixstatic.com/media/a3c155_2b724620025141e0892095906201657c~mv2.png/v1/fill/w_448,h_212,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/AMG%20Logo.png",
   aboutText: `Azariah Management Group (AMG) is an integrated strategic ecosystem designed to empower CEOs, Government Directors, and Social Impact Leaders. We bridge the gap between high-level management consulting and professional creative execution.
 
   Our multi-disciplinary approach combines Corporate Social Responsibility, Nonprofit Capacity Building, and AI-driven Innovation to ensure that organizations don't just survive—they lead. At AMG, we turn strategic vision into measurable social and business value.`,

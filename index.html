@@ -14,11 +14,11 @@
           extend: {
             colors: {
               amg: {
-                blue: '#0F2C59',
-                green: '#16a34a', /* Replaced Gold with Green to match logo */
+                blue: '#00548B', // Precise brand blue
+                green: '#8DC63F', // Precise brand lime green
+                grey: '#707070', // Brand grey from "MANAGEMENT"
                 light: '#F8F9FA',
-                dark: '#1a1a1a',
-                accent: '#4ade80' /* Lighter Green accent */
+                dark: '#0a0a0a'
               }
             },
             fontFamily: {
@@ -33,7 +33,7 @@
               'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
               'spin-slow': 'spin 12s linear infinite',
               'text-shimmer': 'textShine 5s linear infinite',
-              'scroll-right': 'scrollRight 30s linear infinite',
+              'scroll-right': 'scrollRight 40s linear infinite',
             },
             keyframes: {
               fadeInUp: {
@@ -69,41 +69,30 @@
       h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; }
       .scroll-mt-24 { scroll-margin-top: 6rem; }
       
-      /* --- Reveal Animation System --- */
       .reveal {
         opacity: 0;
         transition: all 1s cubic-bezier(0.5, 0, 0, 1);
         will-change: transform, opacity;
       }
       
-      /* Initial States */
       .from-bottom { transform: translateY(50px); }
       .from-left { transform: translateX(-50px); }
       .from-right { transform: translateX(50px); }
       .from-scale { transform: scale(0.9); }
       
-      /* Active State */
       .reveal.active {
         opacity: 1;
         transform: translate(0) scale(1);
       }
       
-      /* Delays */
-      .delay-100 { transition-delay: 100ms; }
-      .delay-200 { transition-delay: 200ms; }
-      .delay-300 { transition-delay: 300ms; }
-      .delay-400 { transition-delay: 400ms; }
-      
-      /* Gradient Text Utility */
       .text-gradient {
-        background: linear-gradient(to right, #16a34a, #4ade80, #16a34a);
+        background: linear-gradient(to right, #8DC63F, #00548B, #8DC63F);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
         background-size: 200% auto;
       }
 
-      /* Custom Scrollbar */
       ::-webkit-scrollbar {
         width: 10px;
       }
@@ -111,11 +100,11 @@
         background: #f1f1f1; 
       }
       ::-webkit-scrollbar-thumb {
-        background: #0F2C59; 
+        background: #00548B; 
         border-radius: 5px;
       }
       ::-webkit-scrollbar-thumb:hover {
-        background: #16a34a; 
+        background: #8DC63F; 
       }
     </style>
   <script type="importmap">
@@ -132,7 +121,6 @@
   <body>
     <div id="root"></div>
     <script>
-      // Enhanced Intersection Observer
       document.addEventListener('DOMContentLoaded', () => {
         const observerOptions = {
           threshold: 0.15,

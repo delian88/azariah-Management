@@ -13,6 +13,7 @@ import CommunityImpact from './components/CommunityImpact';
 import CreativeStorytelling from './components/CreativeStorytelling';
 import Studio from './components/Studio';
 import Podcast from './components/Podcast';
+import FinalCTA from './components/FinalCTA';
 import BookingSession from './components/BookingSession';
 import AiForceCommunity from './components/AiForceCommunity';
 import Contact from './components/Contact';
@@ -36,6 +37,7 @@ const App: React.FC = () => {
       <Studio />
       <Podcast />
       <AiForceCommunity />
+      <FinalCTA />
       <BookingSession />
       <Contact />
       <Footer />

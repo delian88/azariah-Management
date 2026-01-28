@@ -12,12 +12,21 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-24 mb-20">
           
           <div className="md:col-span-5">
-            <img 
-              src={COMPANY_INFO.logoUrl} 
-              alt={COMPANY_INFO.name} 
-              className="h-20 w-auto mb-8 brightness-0 invert opacity-100"
-              style={{ objectFit: 'contain' }}
-            />
+            {/* 
+                Fix: Logo has a white background. Instead of inverting it (which turns it white-on-white),
+                we keep it original and wrap it in a clean white rounded container for professional look.
+            */}
+            <div className="inline-block bg-white p-4 rounded-2xl shadow-2xl mb-8">
+              <img 
+                src={COMPANY_INFO.logoUrl} 
+                alt={COMPANY_INFO.name} 
+                className="h-16 w-auto"
+                style={{ objectFit: 'contain' }}
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = 'https://placehold.co/400x200/ffffff/00548B?text=AMG+LOGO';
+                }}
+              />
+            </div>
             <p className="text-gray-400 text-lg leading-relaxed mb-10 max-w-md">
               A Strategic Force-Multiplier for Global Leaders. We bridge the gap between high-level management consulting and professional creative execution.
             </p>
