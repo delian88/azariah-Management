@@ -16,6 +16,7 @@ const Footer: React.FC = () => {
               src={COMPANY_INFO.logoUrl} 
               alt={COMPANY_INFO.name} 
               className="h-20 w-auto mb-8 brightness-0 invert opacity-100"
+              style={{ objectFit: 'contain' }}
             />
             <p className="text-gray-400 text-lg leading-relaxed mb-10 max-w-md">
               A Strategic Force-Multiplier for Global Leaders. We bridge the gap between high-level management consulting and professional creative execution.
@@ -62,7 +63,7 @@ const Footer: React.FC = () => {
               </div>
               <div className="flex items-center space-x-4">
                 <div className="text-amg-green">
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2-2v10a2 2 0 002 2z" /></svg>
                 </div>
                 <a href={`mailto:${COMPANY_INFO.email}`} className="text-gray-400 hover:text-white transition-colors text-sm">{COMPANY_INFO.email}</a>
               </div>
