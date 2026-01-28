@@ -40,7 +40,7 @@ const AppContent: React.FC = () => {
           responseModalities: [Modality.AUDIO],
           speechConfig: {
             voiceConfig: {
-              prebuiltVoiceConfig: { voiceName: 'Kore' }, // Cheerful and professional
+              prebuiltVoiceConfig: { voiceName: 'Kore' }, // Professional and pleasant
             },
           },
         },
@@ -56,17 +56,20 @@ const AppContent: React.FC = () => {
         source.start();
       }
     } catch (err) {
-      console.warn("Welcome sound skipped due to browser autoplay policy or error:", err);
+      console.warn("Welcome sound skipped or failed:", err);
     }
   };
 
   useEffect(() => {
     if (isLoaded) {
-      // Trigger welcome sound after a slight delay for better UX
-      setTimeout(playWelcomeSound, 500);
+      // Trigger welcome sound shortly after reveal
+      const audioTimer = setTimeout(playWelcomeSound, 600);
+      const loaderTimer = setTimeout(() => setShouldRenderLoader(false), 1100);
       
-      const timer = setTimeout(() => setShouldRenderLoader(false), 1100);
-      return () => clearTimeout(timer);
+      return () => {
+        clearTimeout(audioTimer);
+        clearTimeout(loaderTimer);
+      };
     }
   }, [isLoaded]);
 
@@ -74,7 +77,7 @@ const AppContent: React.FC = () => {
     try {
       window.scrollTo(0, 0);
       
-      // Normalize path to handle root variations like /index.html, empty strings, or base paths
+      // Extract normalized path for routing
       const path = currentPath.split('?')[0].split('#')[0];
       
       const routes: Record<string, React.ReactNode> = {
@@ -87,12 +90,10 @@ const AppContent: React.FC = () => {
         '/blueprint': <div className="pt-20"><LeadMagnet /></div>,
       };
 
-      // If the path matches a route, return it. Otherwise, default to Home content.
-      if (routes[path]) {
-        return routes[path];
-      }
+      // Exact route match
+      if (routes[path]) return routes[path];
 
-      // Default Home Content (Fall-through for fail-safe rendering)
+      // Default Home Content (for any other paths or index.html)
       return (
         <>
           <Hero />
@@ -118,8 +119,7 @@ const AppContent: React.FC = () => {
       );
     } catch (err) {
       console.error("Critical rendering error:", err);
-      // Absolute fallback if everything else fails
-      return <div className="py-40 text-center"><h1 className="text-2xl font-bold">Something went wrong.</h1><button onClick={() => window.location.href = '/'} className="mt-4 text-amg-blue underline">Return Home</button></div>;
+      return <div className="py-40 text-center"><h1 className="text-2xl font-bold">An unexpected error occurred.</h1><button onClick={() => window.location.href = '/'} className="mt-4 text-amg-blue underline">Refresh Home</button></div>;
     }
   }, [currentPath]);
 

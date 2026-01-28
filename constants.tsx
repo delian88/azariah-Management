@@ -5,7 +5,7 @@ import { ServiceItem, NavItem } from './types';
 export const Icons = {
   Chart: () => (
     <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2-2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
     </svg>
   ),
   Users: () => (
@@ -133,16 +133,16 @@ export const SERVICES: ServiceItem[] = [
 ];
 
 export const PARTNERS = [
-  { id: 1, name: 'Grey Consortium UK', logo: 'https://placehold.co/300x120/00548B/FFFFFF?text=GREY+UK&font=montserrat' },
-  { id: 2, name: 'Grey Consortium South Africa', logo: 'https://placehold.co/300x120/00548B/FFFFFF?text=GREY+SA&font=montserrat' },
-  { id: 3, name: 'Grey Cinema UK', logo: 'https://placehold.co/300x120/00548B/FFFFFF?text=GREY+CINEMA&font=montserrat' },
-  { id: 4, name: 'Knights of Columbus', logo: 'https://placehold.co/300x120/00548B/FFFFFF?text=ST.+MATHEWS&font=montserrat' },
-  { id: 5, name: 'Luxurious Decorations', logo: 'https://placehold.co/300x120/00548B/FFFFFF?text=LUXURIOUS+LONDON&font=montserrat' },
-  { id: 6, name: 'Foundation of Luv', logo: 'https://placehold.co/300x120/00548B/FFFFFF?text=LUV+FOUNDATION&font=montserrat' },
-  { id: 7, name: 'World AI Force', logo: 'https://placehold.co/300x120/00548B/FFFFFF?text=WORLD+AI+FORCE&font=montserrat' },
-  { id: 8, name: 'Premegage Tech', logo: 'https://placehold.co/300x120/00548B/FFFFFF?text=PREMEGAGE&font=montserrat' },
-  { id: 9, name: 'NYCN North America', logo: 'https://placehold.co/300x120/00548B/FFFFFF?text=NYCN+NA&font=montserrat' },
-  { id: 10, name: 'BlackbyAngel', logo: 'https://placehold.co/300x120/00548B/FFFFFF?text=BLACKBYANGEL&font=montserrat' },
+  { id: 1, name: 'Grey Consortium UK' },
+  { id: 2, name: 'Grey Consortium South Africa' },
+  { id: 3, name: 'Grey Cinema UK' },
+  { id: 4, name: 'Knight of Columbus - St. Mathews Council Baltimore' },
+  { id: 5, name: 'Luxurious Decorations - London' },
+  { id: 6, name: 'Foundation of Luv' },
+  { id: 7, name: 'World AI Force' },
+  { id: 8, name: 'Premegage Tech Solution' },
+  { id: 9, name: 'NYCN - North America' },
+  { id: 10, name: 'BlackbyAngel' },
 ];
 
 export const COMPANY_INFO = {
