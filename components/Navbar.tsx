@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { NAV_ITEMS, Icons, COMPANY_INFO } from '../constants';
 
@@ -44,6 +45,7 @@ const Navbar: React.FC = () => {
                 src={COMPANY_INFO.logoUrl} 
                 alt={COMPANY_INFO.name} 
                 className={`h-14 w-auto transition-all duration-300 ${scrolled ? 'brightness-100' : 'brightness-0 invert'}`}
+                style={{ objectFit: 'contain' }}
               />
             </a>
           </div>

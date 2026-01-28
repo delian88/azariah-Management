@@ -1,9 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Azariah Management Group</title>
+    <title>Azariah Management Group | Strategic Force Multiplier</title>
+    <link rel="icon" type="image/png" href="https://static.wixstatic.com/media/a3c155_2b724620025141e0892095906201657c~mv2.png" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script>
@@ -13,7 +15,7 @@
             colors: {
               amg: {
                 blue: '#0F2C59',
-                green: '#16a34a', /* Replaced Gold with Green */
+                green: '#16a34a', /* Replaced Gold with Green to match logo */
                 light: '#F8F9FA',
                 dark: '#1a1a1a',
                 accent: '#4ade80' /* Lighter Green accent */
@@ -133,7 +135,7 @@
       // Enhanced Intersection Observer
       document.addEventListener('DOMContentLoaded', () => {
         const observerOptions = {
-          threshold: 0.15, // Trigger a bit later
+          threshold: 0.15,
           rootMargin: "0px 0px -50px 0px"
         };
         
@@ -141,7 +143,6 @@
           entries.forEach(entry => {
             if (entry.isIntersecting) {
               entry.target.classList.add('active');
-              // Optional: Stop observing once revealed
               observer.unobserve(entry.target);
             }
           });
@@ -154,7 +155,6 @@
 
         observeElements();
 
-        // Re-observe for React dynamic updates
         const mutationObserver = new MutationObserver(observeElements);
         mutationObserver.observe(document.body, { childList: true, subtree: true });
       });
