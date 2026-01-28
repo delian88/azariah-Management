@@ -4,23 +4,30 @@ import { COMPANY_INFO } from '../constants';
 import { GoogleGenAI, Modality } from "@google/genai";
 
 interface LoadingScreenProps {
-  onEnter: () => void;
+  onFinished: () => void;
+  isVisible: boolean;
 }
 
-const LoadingScreen: React.FC<LoadingScreenProps> = ({ onEnter }) => {
+const LoadingScreen: React.FC<LoadingScreenProps> = ({ onFinished, isVisible }) => {
   const [isReady, setIsReady] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
-    // Initial reveal delay
-    const timer = setTimeout(() => setIsReady(true), 1500);
-    return () => clearTimeout(timer);
+    // Phase 1: Show the logo
+    const showTimer = setTimeout(() => setIsReady(true), 100);
+    
+    // Phase 2: Play sound and transition after logo animation
+    const finishTimer = setTimeout(() => {
+      playWelcomeSound();
+      onFinished();
+    }, 2800);
+
+    return () => {
+      clearTimeout(showTimer);
+      clearTimeout(finishTimer);
+    };
   }, []);
 
   const playWelcomeSound = async () => {
-    if (isPlaying) return;
-    setIsPlaying(true);
-
     try {
       const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
       const response = await ai.models.generateContent({
@@ -30,7 +37,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onEnter }) => {
           responseModalities: [Modality.AUDIO],
           speechConfig: {
             voiceConfig: {
-              prebuiltVoiceConfig: { voiceName: 'Kore' }, // Professional executive tone
+              prebuiltVoiceConfig: { voiceName: 'Kore' },
             },
           },
         },
@@ -46,19 +53,12 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onEnter }) => {
         source.buffer = audioBuffer;
         source.connect(audioContext.destination);
         source.start();
-        
-        // Notify parent to transition while audio starts
-        onEnter();
-      } else {
-        onEnter(); // Fallback if audio fails
       }
     } catch (err) {
-      console.error("Welcome sound error:", err);
-      onEnter(); // Fallback
+      console.warn("Audio autoplay blocked or failed:", err);
     }
   };
 
-  // Helper functions for raw PCM decoding
   function decodeBase64(base64: string) {
     const binaryString = atob(base64);
     const bytes = new Uint8Array(binaryString.length);
@@ -81,55 +81,41 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onEnter }) => {
     return buffer;
   }
 
+  if (!isVisible) return null;
+
   return (
-    <div className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-white overflow-hidden">
-      {/* Background Decor */}
+    <div className={`fixed inset-0 z-[100] flex flex-col items-center justify-center bg-white transition-opacity duration-1000 ${isReady ? 'opacity-100' : 'opacity-0'}`}>
       <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-white"></div>
       <div className="absolute w-[500px] h-[500px] bg-amg-blue/5 rounded-full blur-[120px] animate-pulse-slow"></div>
       
-      <div className={`flex flex-col items-center transition-all duration-1000 transform ${isReady ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
-        {/* Animated Logo Container */}
-        <div className="relative mb-12">
-          {/* Breathing Glow Effect */}
+      <div className="flex flex-col items-center">
+        <div className="relative mb-8">
           <div className="absolute -inset-8 bg-amg-green/20 rounded-full blur-3xl animate-pulse-slow"></div>
-          
-          <div className="relative bg-white p-8 rounded-[2.5rem] shadow-2xl border border-gray-100 animate-fade-in-down">
+          <div className="relative bg-white p-6 sm:p-8 rounded-[2.5rem] shadow-2xl border border-gray-100 animate-fade-in-down">
             <img 
               src={COMPANY_INFO.logoUrl} 
               alt={COMPANY_INFO.name} 
-              className="h-24 sm:h-32 w-auto object-contain"
+              className="h-20 sm:h-28 w-auto object-contain"
             />
           </div>
         </div>
 
-        {/* Loading Text / CTA */}
-        <div className="text-center">
-          <h2 className="text-amg-blue font-black uppercase tracking-[0.5em] text-xs mb-8 animate-pulse">
-            Establishing Strategic Connection
+        <div className="text-center overflow-hidden">
+          <h2 className="text-amg-blue font-black uppercase tracking-[0.5em] text-[10px] sm:text-xs animate-pulse">
+            Initializing Strategic Connection
           </h2>
-          
-          <button 
-            onClick={playWelcomeSound}
-            disabled={isPlaying}
-            className={`group relative overflow-hidden px-12 py-4 rounded-full bg-amg-blue text-white font-black uppercase tracking-widest text-xs shadow-2xl transition-all hover:bg-amg-green hover:-translate-y-1 active:scale-95 ${isPlaying ? 'opacity-50 cursor-wait' : ''}`}
-          >
-            <span className="relative z-10 flex items-center gap-3">
-              {isPlaying ? 'Initializing...' : 'Enter Experience'}
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M13 5l7 7-7 7M5 5l7 7-7 7" />
-              </svg>
-            </span>
-            <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform"></div>
-          </button>
+          <div className="mt-4 w-48 h-0.5 bg-gray-100 rounded-full mx-auto relative overflow-hidden">
+            <div className="absolute inset-0 bg-amg-green animate-[loading_2.5s_ease-in-out_forwards]"></div>
+          </div>
         </div>
       </div>
 
-      {/* Footer Branding */}
-      <div className="absolute bottom-12 text-center opacity-30">
-        <p className="text-[10px] font-black uppercase tracking-[0.8em] text-amg-blue">
-          Azariah Management Group
-        </p>
-      </div>
+      <style>{`
+        @keyframes loading {
+          0% { transform: translateX(-100%); }
+          100% { transform: translateX(0); }
+        }
+      `}</style>
     </div>
   );
 };

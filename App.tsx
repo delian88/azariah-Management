@@ -25,10 +25,18 @@ import { NavigationProvider, useNavigation } from './NavigationContext';
 
 const AppContent: React.FC = () => {
   const { currentPath } = useNavigation();
-  const [isAppVisible, setIsAppVisible] = useState(false);
+  const [isAppLoaded, setIsAppLoaded] = useState(false);
+  const [showLoader, setShowLoader] = useState(true);
+
+  useEffect(() => {
+    if (isAppLoaded) {
+      // Small buffer for the fade animation
+      const timer = setTimeout(() => setShowLoader(false), 1000);
+      return () => clearTimeout(timer);
+    }
+  }, [isAppLoaded]);
 
   const renderedContent = useMemo(() => {
-    // Return to the top on page change
     window.scrollTo(0, 0);
 
     switch (currentPath) {
@@ -79,15 +87,26 @@ const AppContent: React.FC = () => {
   }, [currentPath]);
 
   return (
-    <div className={`min-h-screen bg-white flex flex-col font-sans text-gray-900 transition-opacity duration-1000 ${isAppVisible ? 'opacity-100' : 'opacity-0'}`}>
-      {!isAppVisible && <LoadingScreen onEnter={() => setIsAppVisible(true)} />}
-      
-      <Navbar />
-      <main className="flex-grow">
-        {renderedContent}
-      </main>
-      <Footer />
-      <ChatWidget />
+    <div className="relative min-h-screen bg-white font-sans text-gray-900">
+      {/* Loading Screen Overlay */}
+      {showLoader && (
+        <div className={`transition-opacity duration-1000 ${isAppLoaded ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
+          <LoadingScreen 
+            onFinished={() => setIsAppLoaded(true)} 
+            isVisible={showLoader} 
+          />
+        </div>
+      )}
+
+      {/* Main App Content */}
+      <div className={`flex flex-col min-h-screen transition-all duration-1000 ${isAppLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+        <Navbar />
+        <main className="flex-grow">
+          {renderedContent}
+        </main>
+        <Footer />
+        <ChatWidget />
+      </div>
     </div>
   );
 };
