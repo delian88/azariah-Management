@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { COMPANY_INFO } from '../constants';
 
@@ -11,7 +12,7 @@ const Hero: React.FC = () => {
           src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" 
           alt="Modern corporate office"
           className="w-full h-full object-cover transform scale-100 animate-[pulse_20s_ease-in-out_infinite]"
-          style={{ animationDuration: '30s' }} // Very slow zoom/pulse effect
+          style={{ animationDuration: '30s' }} 
         />
       </div>
 
@@ -24,19 +25,19 @@ const Hero: React.FC = () => {
           <div className="inline-block px-5 py-2 mb-6 border border-amg-green/50 rounded-full bg-amg-blue/40 backdrop-blur-md animate-fade-in-down shadow-lg shadow-amg-green/10">
             <span className="text-amg-green font-bold text-sm uppercase tracking-widest flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-amg-green animate-pulse"></span>
-              Premier Management Consulting
+              {COMPANY_INFO.tagline}
             </span>
           </div>
           
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-white font-heading tracking-tight mb-8 leading-tight animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-            Driving Growth <br/>
+            Integrated <br/>
             <span className="text-gradient text-gradient-animate">
-              Through Excellence
+              Strategic Ecosystem
             </span>
           </h1>
           
           <p className="mt-4 text-xl md:text-2xl text-gray-200 mb-10 leading-relaxed font-light animate-fade-in-up max-w-2xl" style={{ animationDelay: '0.3s' }}>
-            We provide world-class management consulting, program support, and administrative services tailored to empower your organization's future.
+            Empowering CEOs, Government Directors, and Social Leaders through <strong>Corporate Social Responsibility</strong>, Innovation, and Creative Media.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-5 animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
@@ -44,7 +45,7 @@ const Hero: React.FC = () => {
               href="#services"
               className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold rounded-full text-white bg-amg-green overflow-hidden transition-all shadow-[0_0_20px_rgba(22,163,74,0.3)] hover:shadow-[0_0_30px_rgba(22,163,74,0.6)] hover:-translate-y-1"
             >
-              <span className="relative z-10 group-hover:text-white transition-colors duration-300">Explore Services</span>
+              <span className="relative z-10 group-hover:text-white transition-colors duration-300">Our Expertise</span>
               <div className="absolute inset-0 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 ease-out z-0 opacity-10"></div>
             </a>
             <a

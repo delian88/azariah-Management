@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { ServiceItem, NavItem } from './types';
 
@@ -13,24 +14,31 @@ export const Icons = {
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
     </svg>
   ),
-  Clipboard: () => (
+  Globe: () => (
     <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
     </svg>
   ),
-  Truck: () => (
+  Handshake: () => (
     <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
     </svg>
   ),
-  Briefcase: () => (
+  Sparkles: () => (
     <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
     </svg>
   ),
-  Shield: () => (
+  LightBulb: () => (
     <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.674a1 1 0 00.922-.606l2.024-4.857a1 1 0 00-.922-1.385H17.5a1 1 0 01-1-1V7a4 4 0 10-8 0v2a1 1 0 01-1 1H4.31a1 1 0 00-.922 1.385l2.024 4.857a1 1 0 00.922.606z" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 21h4" />
+    </svg>
+  ),
+  Speaker: () => (
+    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5L6 9H2v6h4l5 4V5z" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.54 8.46a5 5 0 010 7.07M19.07 4.93a10 10 0 010 14.14" />
     </svg>
   ),
   Menu: () => (
@@ -53,11 +61,6 @@ export const Icons = {
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
     </svg>
   ),
-  Sparkles: () => (
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-    </svg>
-  ),
   Mic: () => (
     <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
@@ -74,19 +77,9 @@ export const Icons = {
        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
     </svg>
   ),
-  Lock: () => (
+  Briefcase: () => (
     <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-    </svg>
-  ),
-  Desktop: () => (
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-    </svg>
-  ),
-  Smartphone: () => (
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
     </svg>
   )
 };
@@ -104,62 +97,50 @@ export const NAV_ITEMS: NavItem[] = [
 export const SERVICES: ServiceItem[] = [
   {
     id: 's1',
-    title: 'Program Management',
-    description: 'Expert oversight and strategic planning to ensure your projects are delivered on time, within scope, and within budget.',
-    icon: <Icons.Chart />,
+    title: 'Corporate Social Responsibility Consulting',
+    description: 'Strategic guidance for companies looking to make a meaningful social impact through sustainable and ethical business practices.',
+    icon: <Icons.Handshake />,
   },
   {
     id: 's2',
-    title: 'Administrative Support',
-    description: 'Comprehensive office solutions including records management, scheduling, data entry, and executive assistance.',
-    icon: <Icons.Clipboard />,
+    title: 'Nonprofit Strategy & Capacity Building',
+    description: 'Strengthening the foundations of social organizations to scale their mission and enhance organizational efficiency.',
+    icon: <Icons.Chart />,
   },
   {
     id: 's3',
-    title: 'Human Resources',
-    description: 'Strategic HR consulting, talent acquisition, employee relations, and compliance management for a high-performing workforce.',
+    title: 'Government & Public Sector Consulting',
+    description: 'Expert oversight and strategic planning for public institutions, focusing on compliance, performance, and public value.',
     icon: <Icons.Users />,
   },
   {
     id: 's4',
-    title: 'Logistics & Supply Chain',
-    description: 'Efficient management of the flow of goods and services, ensuring optimal performance and cost-effectiveness.',
-    icon: <Icons.Truck />,
+    title: 'Innovation & AI Strategy Consulting',
+    description: 'Integrating cutting-edge technology and artificial intelligence to drive business growth and operational transformation.',
+    icon: <Icons.Sparkles />,
   },
   {
     id: 's5',
-    title: 'Business Consulting',
-    description: 'Tailored advice and strategies to help businesses improve performance, scale operations, and overcome challenges.',
-    icon: <Icons.Briefcase />,
+    title: 'Community Impact & Development',
+    description: 'Targeted strategies for local and global community enhancement, fostering sustainable growth and social equity.',
+    icon: <Icons.Globe />,
   },
   {
     id: 's6',
-    title: 'Security & Compliance',
-    description: 'Ensuring your organization meets all regulatory requirements and maintains the highest standards of security.',
-    icon: <Icons.Shield />,
+    title: 'Creative Storytelling for Social Impact',
+    description: 'Utilizing professional media and digital content to amplify missions and drive engagement for social causes.',
+    icon: <Icons.Speaker />,
   },
   {
     id: 's7',
-    title: 'Cyber Security Training',
-    description: 'Specialized training programs to increase staff awareness, identify vulnerabilities, and protect against cyber threats.',
-    icon: <Icons.Lock />,
-  },
-  {
-    id: 's8',
-    title: 'Software Design',
-    description: 'Custom software architecture and design solutions tailored to streamline your business processes and enhance user experience.',
-    icon: <Icons.Desktop />,
-  },
-  {
-    id: 's9',
-    title: 'App Development',
-    description: 'Full-cycle mobile and web application development, from concept to deployment, building scalable and engaging digital products.',
-    icon: <Icons.Smartphone />,
+    title: 'International Market Entry & Diaspora Innovation',
+    description: 'Facilitating global expansion and leveraging international networks to foster innovation across borders.',
+    icon: <Icons.LightBulb />,
   },
 ];
 
 export const PARTNERS = [
-  { id: 1, name: 'Partner 1', logo: 'https://placehold.co/200x80/white/0F2C59?text=Partner+1&font=montserrat' },
+  { id: 1, name: 'Ai Force', logo: 'https://placehold.co/200x80/white/0F2C59?text=Ai+FORCE&font=montserrat' },
   { id: 2, name: 'Partner 2', logo: 'https://placehold.co/200x80/white/0F2C59?text=Partner+2&font=montserrat' },
   { id: 3, name: 'Partner 3', logo: 'https://placehold.co/200x80/white/0F2C59?text=Partner+3&font=montserrat' },
   { id: 4, name: 'Partner 4', logo: 'https://placehold.co/200x80/white/0F2C59?text=Partner+4&font=montserrat' },
@@ -169,24 +150,24 @@ export const PARTNERS = [
 
 export const COMPANY_INFO = {
   name: "Azariah Management Group",
-  tagline: "Empowering Growth. Delivering Excellence.",
+  tagline: "Consulting • Innovation • Media",
   address: "Upper Marlboro, MD 20772, USA",
   email: "info@azariahmg.com",
   phone: "+1 (240) 813-0308",
   logoUrl: "https://static.wixstatic.com/media/a3c155_2b724620025141e0892095906201657c~mv2.png",
-  aboutText: `Azariah Management Group (AMG) is a premier management consulting firm dedicated to providing exceptional support services to federal and commercial clients. With a commitment to integrity, innovation, and excellence, we partner with organizations to optimize performance and achieve sustainable growth.
+  aboutText: `Azariah Management Group (AMG) is an integrated ecosystem designed for high-impact results. By combining expert management consulting with cutting-edge innovation and professional media capabilities, we serve as a strategic force-multiplier for CEOs, Government Directors, and Social Impact Leaders. 
 
-  Founded on the principles of service and leadership, AMG brings together a team of seasoned professionals with deep expertise in program management, human capital, and administrative support. We understand the unique challenges our clients face and deliver tailored solutions that drive measurable results.`,
+  Our mission is to empower organizations through Corporate Social Responsibility, Nonprofit Capacity Building, and AI-driven strategies that ensure sustainable growth and measurable social value in a rapidly evolving global landscape.`,
 };
 
 export const STUDIO_INFO = {
-  title: "AMG Creative Studio",
+  title: "Creative Storytelling for Social Impact",
   subtitle: "Bring Your Vision to Life",
-  description: "Our state-of-the-art production facility offers professional video production, photography, and digital content creation services. Whether you need corporate training videos, promotional content, or studio rentals, AMG Studio delivers broadcast-quality results.",
+  description: "Our state-of-the-art AMG Studio provides the media infrastructure needed to amplify your social mission. From broadcast-quality podcasting to cinematic video production, we turn social impact strategy into compelling visual narratives.",
 };
 
 export const PODCAST_INFO = {
   title: "The Azariah Perspective",
-  subtitle: "Leadership. Innovation. Growth.",
-  description: "Join us as we explore the evolving landscape of business management, government contracting, and organizational leadership. We feature industry experts and thought leaders sharing insights that drive success.",
+  subtitle: "Leadership. Innovation. Impact.",
+  description: "Join our community of visionaries as we explore the intersection of technology, social responsibility, and international innovation. We interview the leaders shaping the next generation of global impact.",
 };
