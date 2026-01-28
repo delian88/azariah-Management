@@ -7,6 +7,7 @@ import { useNavigation } from '../NavigationContext';
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [logoError, setLogoError] = useState(false);
   const { currentPath } = useNavigation();
 
   useEffect(() => {
@@ -36,13 +37,21 @@ const Navbar: React.FC = () => {
         <div className="flex justify-between items-center h-14 sm:h-16">
           <div className="flex-shrink-0 flex items-center group cursor-pointer">
             <Link href="/" className="flex items-center">
-              <div className={`p-1 sm:p-1.5 rounded-lg transition-all duration-500 overflow-hidden ${(!scrolled && currentPath === '/') ? 'bg-white shadow-2xl scale-110 translate-y-1' : 'bg-transparent'}`}>
-                <img 
-                  src={COMPANY_INFO.logoUrl} 
-                  alt={COMPANY_INFO.name} 
-                  className="h-10 sm:h-12 w-auto transition-all duration-300 transform group-hover:scale-105"
-                  style={{ objectFit: 'contain' }}
-                />
+              <div className={`p-1.5 sm:p-2 rounded-xl transition-all duration-500 flex items-center justify-center min-w-[120px] ${(!scrolled && currentPath === '/') ? 'bg-white shadow-2xl scale-110 translate-y-1' : 'bg-transparent'}`}>
+                {!logoError ? (
+                  <img 
+                    src={COMPANY_INFO.logoUrl} 
+                    alt={COMPANY_INFO.name} 
+                    className="h-10 sm:h-12 w-auto transition-all duration-300 transform group-hover:scale-105"
+                    style={{ objectFit: 'contain' }}
+                    onError={() => setLogoError(true)}
+                  />
+                ) : (
+                  <div className={`flex flex-col leading-none ${(!scrolled && currentPath === '/') ? 'text-amg-blue' : 'text-white'}`}>
+                    <span className="font-black text-lg tracking-tighter">AZARIAH</span>
+                    <span className="text-[6px] font-bold uppercase tracking-widest text-amg-green">Management Group</span>
+                  </div>
+                )}
               </div>
             </Link>
           </div>
