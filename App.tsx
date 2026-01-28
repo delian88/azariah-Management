@@ -39,52 +39,47 @@ const AppContent: React.FC = () => {
   const renderedContent = useMemo(() => {
     window.scrollTo(0, 0);
 
-    if (currentPath === '/') {
-      return (
-        <>
-          <Hero />
-          <Partners />
-          <About />
-          <Services />
-          <CSRHighlight />
-          <NonprofitStrategy />
-          <div id="blueprint">
-             <LeadMagnet />
-          </div>
-          <GovernmentConsulting />
-          <InnovationStrategy />
-          <CommunityImpact />
-          <CreativeStorytelling />
-          <Studio />
-          <Podcast />
-          <AiForceCommunity />
-          <FinalCTA />
-          <BookingSession />
-          <Contact />
-        </>
-      );
-    }
+    // Normalize path to handle root-level variations
+    const path = currentPath.split('?')[0].split('#')[0];
+    
+    // Explicitly check for sub-pages
+    if (path === '/about') return <div className="pt-20"><About /><AiForceCommunity /></div>;
+    if (path === '/services') return <div className="pt-20"><Services /><CSRHighlight /><NonprofitStrategy /><GovernmentConsulting /><InnovationStrategy /><CommunityImpact /></div>;
+    if (path === '/studio') return <div className="pt-20"><Studio /><CreativeStorytelling /></div>;
+    if (path === '/podcast') return <div className="pt-20"><Podcast /></div>;
+    if (path === '/booking') return <div className="pt-20"><BookingSession /></div>;
+    if (path === '/contact') return <div className="pt-20"><Contact /></div>;
+    if (path === '/blueprint') return <div className="pt-20"><LeadMagnet /></div>;
 
-    switch (currentPath) {
-      case '/about': return <div className="pt-20"><About /><AiForceCommunity /></div>;
-      case '/services': return <div className="pt-20"><Services /><CSRHighlight /><NonprofitStrategy /><GovernmentConsulting /><InnovationStrategy /><CommunityImpact /></div>;
-      case '/studio': return <div className="pt-20"><Studio /><CreativeStorytelling /></div>;
-      case '/podcast': return <div className="pt-20"><Podcast /></div>;
-      case '/booking': return <div className="pt-20"><BookingSession /></div>;
-      case '/contact': return <div className="pt-20"><Contact /></div>;
-      case '/blueprint': return <div className="pt-20"><LeadMagnet /></div>;
-      default: return (
-        <div className="py-40 text-center">
-          <h1 className="text-4xl font-bold">404 - Page Not Found</h1>
-          <a href="/" className="text-amg-blue mt-4 inline-block hover:underline">Return Home</a>
+    // Default to Home Content for all other paths (Fail-Safe)
+    return (
+      <>
+        <Hero />
+        <Partners />
+        <About />
+        <Services />
+        <CSRHighlight />
+        <NonprofitStrategy />
+        <div id="blueprint">
+           <LeadMagnet />
         </div>
-      );
-    }
+        <GovernmentConsulting />
+        <InnovationStrategy />
+        <CommunityImpact />
+        <CreativeStorytelling />
+        <Studio />
+        <Podcast />
+        <AiForceCommunity />
+        <FinalCTA />
+        <BookingSession />
+        <Contact />
+      </>
+    );
   }, [currentPath]);
 
   return (
     <div className="relative min-h-screen bg-white font-sans text-gray-900">
-      {/* Loading Screen Overlay - Stays in DOM until fade is complete */}
+      {/* Loading Screen Overlay */}
       {shouldRenderLoader && (
         <div className={`fixed inset-0 z-[100] transition-opacity duration-1000 ease-in-out ${isLoaded ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
           <LoadingScreen 
@@ -94,7 +89,7 @@ const AppContent: React.FC = () => {
         </div>
       )}
 
-      {/* Main App Content - Fades in synchronized with loader fade out */}
+      {/* Main App Content */}
       <div className={`flex flex-col min-h-screen transition-all duration-1000 ease-out ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
         <Navbar />
         <main className="flex-grow">
